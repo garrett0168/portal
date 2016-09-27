@@ -1,0 +1,5 @@
+%h1= @flyer.title
+%p= @flyer.description
+
+=link_to "Edit", edit_flyer_path(@flyer)
+=link_to "Destroy", flyer_path(@flyer), method: :delete, data: { confirm: "Are you sure?"}
