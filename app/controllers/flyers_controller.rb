@@ -1,5 +1,6 @@
 class FlyersController < ApplicationController
 	before_action :find_post, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
 		@flyers = Flyer.all.order("created_at DESC")
@@ -10,11 +11,11 @@ class FlyersController < ApplicationController
 	end
 
 	def new
-		@flyer = Flyer.new
+		@flyer = current_user.flyers.build
 	end
 
 	def create
-		@flyer = Flyer.new(post_params) 
+		@flyer = current_user.flyers.build(post_params) 
 		if  @flyer.save
 			redirect_to @flyer
 		else
