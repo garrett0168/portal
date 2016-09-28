@@ -1,8 +1,4 @@
-%h1
-	hello
-%h2
-	Weenis
-
 - @flyers.each do |flyer|
+	= image_tag flyer.document.url(:medium)
 	%h2= flyer.title
 	%p= flyer.description
