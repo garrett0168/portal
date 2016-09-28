@@ -94,14 +94,13 @@ header {
 .thumb-grid {
 	@include clearfix;
 	li {
+		min-height: 405px;
 		.thumb-image-wrapper  {
 			border-radius: 3px;
 			box-shadow: $thumb-shadow;
 			overflow: hidden;
 			background-color: $briliant-blue;
 			position: relative;
-			min-height: 405px;
-
 			img {
 				@include transition(all 0.2s $ease-in-out-circ);
 			}
