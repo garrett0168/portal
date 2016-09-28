@@ -24,6 +24,10 @@ header {
 	height: 9000px;
 }
 
+.inner-wrap	{
+	padding: 25px 35px;
+ }
+
 .sidebar {
 
 	padding: 120px 0 0 0;
@@ -64,10 +68,15 @@ header {
 }
 
 .thumb-grid {
+	padding-top: 50px;
 	li {
 		@include make-md-column(3);
 		img {
 			width: 100%;
 		}
 	}
+}
+
+footer {
+	padding: 50px;
 }

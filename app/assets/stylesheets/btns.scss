@@ -1,0 +1,66 @@
+.thumb-btns{
+	width: 100%;
+	margin-top: -40px;
+
+	position: relative;
+	z-index: 999;
+	
+	background: $dark-blue-faded;
+
+	opacity: 0;
+	@include transform(translateY(40px));
+
+
+	@include transition(all 0.2s $ease-in-out-circ);
+	@include clearfix;
+}
+
+.download-btn,
+.modal-trigger {	
+	height: 40px;
+	width: 50%;
+	
+	float: left;
+	margin: 0;
+	padding: 10px 0px;
+
+	background-size: 20px 20px;
+	background-position: center center;
+	background-repeat: no-repeat;
+
+	@include hide-text;
+
+	@include transition(all 0.2s $ease-in-out-circ);
+
+	&:hover {
+		background-color: $dark-blue;
+		box-shadow: 1px 2px 3px rgba(0,0,0,0.05);
+	}
+
+}
+.download-btn {
+	background-image: url(patterns/icons/download_20px.png);
+}
+.modal-trigger {
+	background-image: url(patterns/icons/fullview_20px.png);
+}
+
+#marketing-request a{
+	font-size: 18;
+	text-align: center;
+	font-weight: regular;
+	width: 200px;
+	padding: 10px 20px;
+	margin-top: 25px;
+	margin-left: - 20px;
+	background: $briliant-blue;
+	border-radius: 25px;
+	color: #fff;
+	box-shadow: 1px 1px 3px rgba(0,0,0, 0.3);
+	@include transition(all 0.5s $ease-in-out-quad);
+	&:hover {
+		box-shadow: 1px 1px 3px rgba(0,0,0, 0.0);
+		text-shadow: 1px 1px 3px rgba(0,0,0, 0.3);
+		background: shade($briliant-blue, 20%);
+	}
+}

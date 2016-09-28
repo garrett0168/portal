@@ -89,3 +89,41 @@ header {
 .flyer-thumb-grid {
 	@extend .list-unstyled;
 }
+
+
+.thumb-grid {
+	li {
+		.thumb-image-wrapper  {
+			border-radius: 3px;
+			box-shadow: $thumb-shadow;
+			overflow: hidden;
+			background-color: $briliant-blue;
+			position: relative;
+
+			img {
+				@include transition(all 0.2s $ease-in-out-circ);
+			}
+		}
+
+		&:hover {
+
+			img {
+				opacity: 0.8;
+			}
+			.thumb-btns{
+
+				opacity: 1;
+				@include transform(translateY(0px));
+			}
+
+			.title,
+			.description {
+				color: $dark-blue;
+			}
+		}
+	}
+}
+
+footer {
+	background-color: $footer-bg-color;
+}

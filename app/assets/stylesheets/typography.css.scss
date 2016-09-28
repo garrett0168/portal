@@ -1,13 +1,26 @@
 .title,
 .description {
+	font-size: 11px;
 	color: $dark-blue-faded;
+}
+
+.title{
+	font-weight: bold;
+}
+
+.description span {
+	display: block;
+	color: orange;
+	font-size: 8px;
+	padding-top: 15px;
+	text-transform: uppercase;
 }
 
 #hero #intro {
 	color: $intro-color;
-	font-size: 38px;
-	font-weight: 400;
-	line-height: 32px;
+	font-size: 48px;
+	font-weight: 600;
+	line-height: 36px;
 	span.sub-title {
 		font-size: 26px;
 		font-weight:  200 !important;
@@ -40,6 +53,28 @@
 				color: $briliant-blue;
 				@include linear-gradient(to right, transparent, $dark-blue-fade-out);
 			}
+		}
+	}
+}
+
+.headline {
+	color: $dark-blue;
+	font-size: $headline-size;
+	font-weight: bold;
+}
+
+.sub-headline {
+	color: $dark-blue-faded;
+	font-size: $sub-headline-size;
+}
+
+footer { 
+	text-align: center;
+	h4{
+		color: $briliant-blue;
+		font-size: 24px;
+		a {
+			color: $dark-blue-faded;
 		}
 	}
 }

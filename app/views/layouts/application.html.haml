@@ -32,7 +32,10 @@
 				-Category.all.each do |category|
 					%li	
 						=link_to category.name, flyers_path(category: category.name)
+				%li#marketing-request
+					=mail_to "marketing@commercemtg.com", "Marketing Requests"
 		%article.column.content
 			= yield
+	= render 'footer'
 
 

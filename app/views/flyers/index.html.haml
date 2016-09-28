@@ -6,9 +6,19 @@
 			%br/
 			%span.sub-title
 				CHM Marketing Portal.
-%ul.flyer-thumb-grid.thumb-grid
-	- @flyers.each do |flyer|
-		%li	
-			= image_tag flyer.document.url(:medium)
-			%h2.title= flyer.title
-			%p.description= flyer.description
+.inner-wrap	
+	%h2.headline Flyers
+	%h3.sub-headline= params[:category]
+	%ul.flyer-thumb-grid.thumb-grid
+		- @flyers.each do |flyer|
+			%li	
+				.thumb-image-wrapper
+					= image_tag flyer.document.url(:medium)
+					.thumb-btns	
+						= link_to('Click me', 'javascript:;', :id => :foo, :class => "modal-trigger")
+						= link_to('Click me', 'javascript:;', :id => :foo, :class => "download-btn")
+				%h2.title= flyer.title
+				%p.description
+					= flyer.description
+					%span
+						= flyer.category.name
