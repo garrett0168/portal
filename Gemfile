@@ -14,7 +14,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form', '~> 3.3', '>= 3.3.1'
 gem 'devise', '~> 4.2'
 gem 'paperclip', '~> 5.1'
-
+gem 'bourbon'                                                                                                  
+gem 'neat'                                                                                                     
+gem 'bitters'                                                                                                  
+gem 'refills'
+gem 'typekit-rails'
 
 group :development, :test do
   gem 'byebug'

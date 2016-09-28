@@ -1,13 +1,14 @@
 #hero
 	- if user_signed_in?
 		%p#intro
-			Hello,
+			Welcome
 			= current_user.name
 			%br/
-			%span
-				Welcome to the new CHM Marketing Portal.
-
-- @flyers.each do |flyer|
-	= image_tag flyer.document.url(:medium)
-	%h2= flyer.title
-	%p= flyer.description
+			%span.sub-title
+				CHM Marketing Portal.
+%ul.flyer-thumb-grid.thumb-grid
+	- @flyers.each do |flyer|
+		%li	
+			= image_tag flyer.document.url(:medium)
+			%h2.title= flyer.title
+			%p.description= flyer.description

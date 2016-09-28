@@ -1,0 +1,45 @@
+.title,
+.description {
+	color: $dark-blue-faded;
+}
+
+#hero #intro {
+	color: $intro-color;
+	font-size: 38px;
+	font-weight: 400;
+	line-height: 32px;
+	span.sub-title {
+		font-size: 26px;
+		font-weight:  200 !important;
+		text-transform: uppercase;
+	}
+}
+
+.navigation-header {
+	font-size: 18px;
+	font-weight: bold;
+
+	color: $dark-blue-faded;
+
+	margin-bottom: 25px;
+}
+
+.navigation {
+	@extend .list-unstyled;
+
+	li {
+		line-height: 32px;
+
+		a {
+			width: 100%;
+			text-decoration: none;
+			color: $dark-blue;
+			display: block;
+			@include transition(all 0.2/s $ease-in-quad);
+			&:hover {
+				color: $briliant-blue;
+				@include linear-gradient(to right, transparent, $dark-blue-fade-out);
+			}
+		}
+	}
+}

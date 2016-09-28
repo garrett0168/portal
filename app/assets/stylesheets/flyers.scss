@@ -2,20 +2,90 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.sidebar {
-	background-color: rgba(105,125,143, 0.06);
+body {
+	font-family: "mr-eaves-modern",sans-serif;
+	font-weight: regular;
+	letter-spacing: 1px;
 }
 
-.navigation {
-	@extend .list-unstyled;
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 100;
+}
 
-	li {
-		line-height: 2;
+.wrapper {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.clearfix:before, .clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.button {
+	border: 1px solid #9B9B9B;
+	padding: .7rem 1.25rem;
+	border-radius: .3rem;
+	outline: none;
+	background: white;
+	color: #9B9B9B;
+}
+
+header {
+	#logo {
+		float: left;
+		font-size: 1.75rem;
+		width: 66px;
+		height: 66px;    
+		margin-left: 40px;
+		a {
+			@include hide-text;
+			background-image: url(patterns/chm-logo.svg);
+			color: #333233;
+			text-decoration: none;
+			display: block;
+			width: 100%;
+			height: 100%;
+			&:hover {
+				color: #50A7C7;
+			}
+		}
+	}
+	nav {
+		float: right;
+		a {
+			margin-left: 1.5rem;
+			line-height: 2;
+			color: #9B9B9B;
+			text-decoration: none;
+			&:hover {
+				color: #50A7C7;
+			}
+		}
 	}
 }
 
-.navigation-header {
-	font-size: 14px;
-	opacity: 0.58;
+.notice,
+.alert {
+	display: none;
 }
 
+.main {
+	
+	background-color: rgba(105,125,143, 0.06);
+
+}
+
+.content {
+	background-color: #ffffff;
+}
+
+
+
+.flyer-thumb-grid {
+	@extend .list-unstyled;
+}
