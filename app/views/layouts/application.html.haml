@@ -22,9 +22,15 @@
 	%p.notice= notice
 	%p.alert= alert
 	
-	.wrapper
-		-Category.all.each do |category|
-			=link_to category.name, flyers_path(category: category.name)
+	%aside.column.sidebar
+		%ul.navigation
+			%li
+				%h3.navigation-header
+					Browse
+			-Category.all.each do |category|
+				%li	
+					=link_to category.name, flyers_path(category: category.name)
+	%article.column.content
 		= yield
 
 

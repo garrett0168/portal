@@ -1,11 +1,11 @@
-
-- if user_signed_in?
-	%p#intro
-		Hello,
-		= current_user.name
-		%br/
-		%span
-			Welcome to the new CHM Marketing Portal.
+#hero
+	- if user_signed_in?
+		%p#intro
+			Hello,
+			= current_user.name
+			%br/
+			%span
+				Welcome to the new CHM Marketing Portal.
 
 - @flyers.each do |flyer|
 	= image_tag flyer.document.url(:medium)
