@@ -46,7 +46,7 @@ class FlyersController < ApplicationController
 	end
 
 	def post_params
-		params.require(:flyer).permit(:title, :description)
+		params.require(:flyer).permit(:title, :description, :document)
 	end
 
 end

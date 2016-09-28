@@ -1,3 +1,6 @@
+= image_tag @flyer.document.url(:medium)
+= image_tag @flyer.document.url(:large)
+= link_to "My document", @flyer.document.url, target: "_blank"
 %h1= @flyer.title
 %p= @flyer.description
 %p= @flyer.user.name
