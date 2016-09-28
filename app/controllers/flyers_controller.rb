@@ -3,7 +3,12 @@ class FlyersController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-		@flyers = Flyer.all.order("created_at DESC")
+		if params[:category].blank?
+			@flyers = Flyer.all.order("created_at DESC")
+		else
+			@category_id = Category.find_by(name: params[:category]).id
+			@flyers = Flyer.where(category_id: @category_id).order("created_at DESC")
+		end
 	end
 
 	def show
@@ -17,7 +22,7 @@ class FlyersController < ApplicationController
 	def create
 		@flyer = current_user.flyers.build(post_params) 
 		if  @flyer.save
-			redirect_to @flyer
+			redirect_to flyers_path
 		else
 			render 'new'
 		end
@@ -28,7 +33,7 @@ class FlyersController < ApplicationController
 
 	def update
 		if @flyer.update(post_params)
-			redirect_to @flyer
+			redirect_to flyers_path
 		else
 			render 'edit'
 		end
@@ -41,12 +46,12 @@ class FlyersController < ApplicationController
 
 	private
 
+
+	def post_params
+		params.require(:flyer).permit(:title, :description, :document, :category_id)
+	end
+
 	def find_post
 		@flyer = Flyer.find(params[:id])
 	end
-
-	def post_params
-		params.require(:flyer).permit(:title, :description, :document)
-	end
-
 end
