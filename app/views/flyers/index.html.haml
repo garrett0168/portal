@@ -16,9 +16,10 @@
 					= image_tag flyer.document.url(:medium)
 					.thumb-btns	
 						= link_to('Click me', 'javascript:;', :id => :foo, :class => "modal-trigger")
-						= link_to('Click me', 'javascript:;', :id => :foo, :class => "download-btn")
+						= link_to('Download', flyer.document.url(:original, false), :class => "download-btn", :target => "_blank")
 				%h2.title= flyer.title
 				%p.description
 					= flyer.description
 					%span
 						= flyer.category.name
+
