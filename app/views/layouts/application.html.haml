@@ -18,8 +18,8 @@
 					= link_to current_user.name, edit_user_registration_path
 					= link_to "Add New Flyer", new_flyer_path, class: "button"
 				- else
-					= link_to "Sign in", new_user_session_path
-					= link_to "Sign Up", new_user_registration_path, class: "button"
+					= link_to "Sign in", new_user_session_path, class: ""
+					/ = link_to "Sign Up", new_user_registration_path, class: "button"
 	%p.notice= notice
 	%p.alert= alert
 	
@@ -30,9 +30,15 @@
 					%h3.navigation-header
 						Browse
 				-Category.roots.each do |category|
-					%li	
-						=link_to category.name, flyers_path(category: category.name), class: ("active" if category.root == category)
-						=link_to category.children.each.map(&:name).join(' '), flyers_path(category: category.name)
+					%li
+						= link_to category.name, flyers_path(category: category.name)
+			-Category.roots.each do |category|			
+				- unless category.children.empty?
+					%ul.navigation
+						-category.children.each do |subcategory|
+							%li= link_to subcategory.name, flyers_path(category: subcategory.name)
+
+			%ul.navigation
 				%li#marketing-request
 					=mail_to "marketing@commercemtg.com", "Marketing Requests"
 		%article.column.content

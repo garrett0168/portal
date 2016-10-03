@@ -6,8 +6,15 @@ class FlyersController < ApplicationController
 		if params[:category].blank?
 			@flyers = Flyer.all.order("created_at DESC")
 		else
-			@category_id = Category.find_by(name: params[:category]).id
-			@flyers = Flyer.where(category_id: @category_id).order("created_at DESC")
+			@category = Category.find_by(name: params[:category])
+			if @category.children.any?
+				# Parent category
+				subcategory_ids = @category.children.pluck(:id)
+				@flyers = Flyer.where(category_id: subcategory_ids).order("created_at DESC")
+			else
+				# Subcategory
+				@flyers = Flyer.where(category: @category).order("created_at DESC")
+			end
 		end
 	end
 

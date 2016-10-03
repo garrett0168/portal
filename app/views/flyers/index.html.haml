@@ -1,12 +1,20 @@
-#hero
-	- if user_signed_in?
-		%p#intro
-			Welcome
-			= current_user.name
-			%br/
-			%span.sub-title
-				CHM Marketing Portal.
-.inner-wrap	
+#hero-wrap
+	#hero
+		- if user_signed_in?
+			%p#intro
+				Welcome
+				= current_user.name
+				%br/
+				%span.sub-title
+					CHM Marketing Portal.
+		- else
+			%p#intro
+				Welcome to the new
+				%br/
+				%span.sub-title
+					CHM Marketing Portal.
+
+.inner-wrap.push	
 	%h2.headline Flyers
 	%h3.sub-headline= params[:category]
 	%ul.flyer-thumb-grid.thumb-grid
