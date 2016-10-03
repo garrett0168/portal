@@ -1,8 +1,6 @@
-= simple_form_for @flyer do |f|
-	=f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a category"}
-	=f.input :document
-	= f.input :title
-	= f.input :description
-
+= simple_form_for(@flyer, html: {class: 'form-horizontal'}) do |f|
+	= f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a category"}
+	=f.input :title, label: "Flyer Title"
+	=f.input :description, label: "Flyer Description"
+	%br/
 	=f.button :submit
-

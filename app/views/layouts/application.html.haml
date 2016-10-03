@@ -1,48 +1,50 @@
 !!!
 %html
 %head
-	%title Marketing Portal
-	= stylesheet_link_tag 'application', media: 'all'
-	= javascript_include_tag 'application'
-	= csrf_meta_tags
-	%link{:rel => "stylesheet", :href => "//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"}
-	%link{:rel => "stylesheet", :href => "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"}
-	= csrf_meta_tags 
-	= typekit 'yis6mrg'
+    %title Marketing Portal
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+    %link{:rel => "stylesheet", :href => "//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"}
+    %link{:rel => "stylesheet", :href => "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"}
+    = csrf_meta_tags 
+    = typekit 'yis6mrg'
 %body
-	%header
-		.wrapper.clearfix
-			#logo= link_to "CHM Marketing Portal", root_path
-			%nav
-				- if user_signed_in?
-					= link_to current_user.name, edit_user_registration_path
-					= link_to "Add New Flyer", new_flyer_path, class: "button"
-				- else
-					= link_to "Sign in", new_user_session_path, class: ""
-					/ = link_to "Sign Up", new_user_registration_path, class: "button"
-	%p.notice= notice
-	%p.alert= alert
-	
-	.main
-		%aside.column.sidebar
-			%ul.navigation
-				%li
-					%h3.navigation-header
-						Browse
-				-Category.roots.each do |category|
-					%li
-						= link_to category.name, flyers_path(category: category.name)
-			-Category.roots.each do |category|			
-				- unless category.children.empty?
-					%ul.navigation
-						-category.children.each do |subcategory|
-							%li= link_to subcategory.name, flyers_path(category: subcategory.name)
+    %header
+        .wrapper.clearfix
+            #logo= link_to "CHM Marketing Portal", root_path
+            %nav
+                - if user_signed_in?
+                    = link_to current_user.name, edit_user_registration_path
+                    = link_to "Add New Flyer", new_flyer_path, class: "button"
+                - else
+                    = link_to "Sign in", new_user_session_path, class: ""
+                    / = link_to "Sign Up", new_user_registration_path, class: "button"
+    %p.notice= notice
+    %p.alert= alert
+    
+    .main
+        %aside.column.sidebar
+            %ul.navigation
+                %li
+                    %h3.navigation-header
+                        Browse
+                -# -Category.roots.each do |category|
+                -#  %li
+                -#      = link_to category.name, flyers_path(category: category.name), class: ("active" if category.root == category)
+                -#  -category.roots.each do |category|          
+                -#      - unless category.children.empty?
+                -#          %ul.navigation
+                -#              -category.children.each do |subcategory|
+                -#                  %li= link_to subcategory.name, flyers_path(category: subcategory.name)
+            
+                %li= render 'page_categories'
 
-			%ul.navigation
-				%li#marketing-request
-					=mail_to "marketing@commercemtg.com", "Marketing Requests"
-		%article.column.content
-			= yield
-	= render 'footer'
+            %ul.navigation
+                %li#marketing-request
+                    =mail_to "marketing@commercemtg.com", "Marketing Requests"
+        %article.column.content
+            = yield
+    = render 'footer'
 
 

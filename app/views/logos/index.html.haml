@@ -1,0 +1,33 @@
+#hero-wrap
+	#hero
+		- if user_signed_in?
+			%p#intro
+				Welcome
+				= current_user.name
+				%br/
+				%span.sub-title
+					CHM Marketing Portal.
+		- else
+			%p#intro
+				Welcome to the new
+				%br/
+				%span.sub-title
+					CHM Marketing Portal.
+
+.inner-wrap.push	
+	%h2.headline Logos
+	%h3.sub-headline= params[:category]
+	=link_to "New", new_logo_path(@logo)
+	%ul.flyer-thumb-grid.thumb-grid
+		- @logos.each do |logo|
+			%li	
+				.thumb-image-wrapper
+					= image_tag logo.document.url(:medium)
+					.thumb-btns	
+						= link_to('Click me', 'javascript:;', :id => :foo, :class => "modal-trigger")
+						= link_to('Download', logo.document.url(:original, false), :class => "download-btn", :target => "_blank")
+				%h2.title= logo.title
+				%p.description
+					= logo.description
+					%span
+						= logo.category.name

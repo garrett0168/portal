@@ -1,0 +1,6 @@
+%h1= @logo.title
+%h1= @logo.description
+
+=link_to "Home", logos_path
+=link_to "Edit", edit_logo_path(@logo)
+=link_to "Delete", logo_path(@logo), method: :delete, data: {confirm: "You sure?????"}

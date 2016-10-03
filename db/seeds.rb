@@ -10,12 +10,25 @@ Category.destroy_all
 
 
 
-category = Category.create(name: 'blah')
-category.children.create(name: 'subcategory')
+category = Category.create(name: 'Company')
 
-category = Category.create(name: 'Rock')
-category.children.create(name: 'slide')
+category = Category.create(name: 'Product')
+category.children.create(name: 'Conventional')
+category.children.create(name: 'FHA')
+category.children.create(name: 'HELOC')
+category.children.create(name: 'First Time Homebuyer')
+category.children.create(name: 'Homebuyer')
+category.children.create(name: 'Jumbo')
+category.children.create(name: 'Refinance')
+category.children.create(name: 'Reverse')
+category.children.create(name: 'USDA')
+category.children.create(name: 'VA')
 
-category = Category.create(name: 'Rocky')
-category.children.create(name: 'slidey')
-category.children.create(name: 'slippy')
+category = Category.create(name: 'Partners')
+category.children.create(name: 'Referrals')
+category.children.create(name: 'Co-Branded')
+
+category = Category.create(name: 'Recruiting')
+category = Category.create(name: 'Spanish')
+category = Category.create(name: 'Sales Presentations')
+

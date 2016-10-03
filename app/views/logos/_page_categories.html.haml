@@ -1,0 +1,2 @@
+- Category.select {|cat| cat.logos.count > 0}.each do |category|
+	= link_to category.name, logos_path(category: category.name)

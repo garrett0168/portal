@@ -38,6 +38,11 @@ h1, h2, h3, h4, h5, h6 {
 	color: #9B9B9B;
 }
 
+.active {
+	color: $briliant-blue;
+	font-weight: bold;
+}
+
 header {
 	#logo {
 		float: left;

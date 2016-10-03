@@ -1,0 +1,2 @@
+- Category.select {|cat| cat.flyers.count > 0}.each do |category|
+	%li= link_to category.name, flyers_path(category: category.name)
