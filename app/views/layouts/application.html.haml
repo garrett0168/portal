@@ -29,6 +29,10 @@
                 %li
                     %h3.navigation-header
                         Browse
+                %li
+                    = link_to "Flyers", flyers_path, class: ""
+                %li
+                    = link_to "Logos", logos_path, class: ""
                 -# -Category.roots.each do |category|
                 -#  %li
                 -#      = link_to category.name, flyers_path(category: category.name), class: ("active" if category.root == category)
@@ -37,8 +41,9 @@
                 -#          %ul.navigation
                 -#              -category.children.each do |subcategory|
                 -#                  %li= link_to subcategory.name, flyers_path(category: subcategory.name)
-            
-                %li= render 'page_categories'
+            -if !current_page?(root_path)
+                %ul.navigation
+                    %li= render 'page_categories'
 
             %ul.navigation
                 %li#marketing-request

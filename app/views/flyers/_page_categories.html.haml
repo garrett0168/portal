@@ -1,2 +1,6 @@
-- Category.select {|cat| cat.flyers.count > 0}.each do |category|
-	%li= link_to category.name, flyers_path(category: category.name)
+- Category.roots.select {|cat| cat.flyers.count > 0}.each do |category|
+	%li= link_to category.name, flyers_path(category: category.name)         
+	- unless category.children.empty?
+		%ul.navigation
+			-category.children.each do |subcategory|
+				%li= link_to subcategory.name, flyers_path(category: subcategory.name)

@@ -7,6 +7,7 @@ class LogosController < ApplicationController
 		else
 			@category_id = Category.find_by(name: params[:category]).id
 			@logos = Logo.where(category_id: @category_id).order("created_at DESC")
+			@categories = Category.arrange(:order => :created_at)
 		end
 
 	end
@@ -48,7 +49,7 @@ class LogosController < ApplicationController
 	private
 
 	def logo_params
-		params.require(:logo).permit(:title, :description, :category_id)
+		params.require(:logo).permit(:title, :description, :document, :category_id)
 	end
 
 	def find_logo
