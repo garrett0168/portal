@@ -73,8 +73,11 @@ footer {
 	h4{
 		color: $briliant-blue;
 		font-size: 24px;
+		font-weight: bold;
+	    line-height: 160px;
 		a {
 			color: $dark-blue-faded;
+			font-weight: 400;
 		}
 	}
 }

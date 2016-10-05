@@ -4,7 +4,7 @@
 
 
 $(window).scroll(function() {
-if ($(this).scrollTop() > 190){  
+if ($(this).scrollTop() > 200){  
     $('#hero-wrap').addClass("smaller");
   }
   else{

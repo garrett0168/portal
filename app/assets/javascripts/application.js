@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+
+
+//= require modal
+
+
 //= require typekit
 //= require_tree .

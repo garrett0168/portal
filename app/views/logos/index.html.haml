@@ -24,10 +24,13 @@
 				.thumb-image-wrapper
 					= image_tag logo.document.url(:medium)
 					.thumb-btns	
-						= link_to('Click me', 'javascript:;', :id => :foo, :class => "modal-trigger")
+						.modal
+							%label{:for => "modal-1"}
+								.modal-trigger Click for Modal
 						= link_to('Download', logo.document.url(:original, false), :class => "download-btn", :target => "_blank")
 				%h2.title= logo.title
 				%p.description
 					= logo.description
 					%span
 						= logo.category.name
+			= render partial: 'modal', locals: { logo: logo }

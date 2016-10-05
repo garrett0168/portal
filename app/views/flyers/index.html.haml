@@ -23,11 +23,14 @@
 				.thumb-image-wrapper
 					= image_tag flyer.document.url(:medium)
 					.thumb-btns	
-						= link_to('Click me', 'javascript:;', :id => :foo, :class => "modal-trigger")
+						.modal
+							%label{:for => "modal-1"}
+								.modal-trigger Click for Modal
 						= link_to('Download', flyer.document.url(:original, false), :class => "download-btn", :target => "_blank")
 				%h2.title= flyer.title
 				%p.description
 					= flyer.description
 					%span
 						= flyer.category.name
-
+			= render partial: 'modal', locals: { flyer: flyer }
+			
