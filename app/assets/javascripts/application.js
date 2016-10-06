@@ -12,10 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-
-
+//= require angular
+//= require angular/app
+//= require_tree ./angular/models
+//= require_tree ./angular/controllers
 //= require modal
-
 
 //= require typekit
 //= require_tree .
