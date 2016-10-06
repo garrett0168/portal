@@ -17,9 +17,9 @@
 .inner-wrap.push  
   %h2.headline Flyers
   %h3.sub-headline= params[:category]
-  %ul.flyer-thumb-grid.thumb-grid
+  %ul.flyer-thumb-grid.thumb-grid.transitions-enabled#masonry-container
     - @flyers.each do |flyer|
-      %li 
+      %li.thumb 
         .thumb-image-wrapper
           = image_tag flyer.document.url(:medium)
           .thumb-btns 
@@ -32,5 +32,5 @@
           = flyer.description
           %span
             = flyer.category.name
-      = render partial: 'modal', locals: { flyer: flyer }
+        = render partial: 'modal', locals: { flyer: flyer }
       
