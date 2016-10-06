@@ -33,9 +33,9 @@
             = link_to "Flyers", flyers_path, class: ""
           %li
             = link_to "Logos", logos_path, class: ""
-          / -if !current_page?(root_path)
-          /     %ul.navigation
-          /         %li= render 'page_categories'
+          - unless current_page?(root_path)
+            %ul.navigation
+              %li= render 'page_categories'
 
         %ul.navigation
           %li#marketing-request

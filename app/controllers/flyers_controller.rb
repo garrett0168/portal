@@ -7,13 +7,13 @@ class FlyersController < ApplicationController
       @flyers = Flyer.all.order("created_at DESC")
     else
       @category = Category.find_by(name: params[:category])
-      if @category.children.any?
+      if @category.root?
         # Parent category
         subcategory_ids = @category.children.pluck(:id)
-        @flyers = Flyer.where(category_id: subcategory_ids).order("created_at DESC")
+        @flyers = Flyer.joins("LEFT JOIN flyers_subcategories ON flyers_subcategories.flyer_id = flyers.id").where("flyers.category_id = ? or flyers_subcategories.category_id IN (?)", @category.id, subcategory_ids).order("created_at DESC")
       else
         # Subcategory
-        @flyers = Flyer.where(category: @category).order("created_at DESC")
+        @flyers = Flyer.joins(:flyers_subcategories).where("flyers_subcategories.category_id = ?", @category.id).order("created_at DESC")
       end
     end
   end
