@@ -22,6 +22,12 @@ gem 'bitters'
 gem 'refills'
 gem 'typekit-rails'
 
+# i like angular
+gem 'angularjs-rails'
+
+# puma is better
+gem 'puma'
+
 gem 'ancestry'
 
 gem 'rails_12factor', group: :production

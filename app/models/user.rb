@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :flyers
+  has_many :flyers, inverse_of: :user, dependent: :nullify
 end
