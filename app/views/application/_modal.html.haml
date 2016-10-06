@@ -1,11 +1,11 @@
 .modal
-	%input#modal-1.modal-state{:type => "checkbox"}/
-	.modal-fade-screen
-		.modal-inner
-			.modal-close{:for => "modal-1"}
-			-if current_page?(flyers_path)	
-				= image_tag flyer.document.url(:large)
-				= link_to('Download', flyer.document.url(:original, false), :class => "download-btn", :target => "_blank")
-			-elsif current_page?(logos_path)	
-				= image_tag logo.document.url(:large)
-				= link_to('Download', logo.document.url(:original, false), :class => "download-btn", :target => "_blank")
+  %input.modal-state{id: "modal-#{flyer.id}", type: "checkbox"}/
+  .modal-fade-screen
+    .modal-inner
+      .modal-close{for: "modal-#{flyer.id}"}
+      -if current_page?(flyers_path)  
+        = image_tag flyer.document.url(:large)
+        = link_to('Download', flyer.document.url(:original, false), :class => "download-btn", :target => "_blank")
+      -elsif current_page?(logos_path)  
+        = image_tag logo.document.url(:large)
+        = link_to('Download', logo.document.url(:original, false), :class => "download-btn", :target => "_blank")
