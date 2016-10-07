@@ -18,6 +18,11 @@ class FlyersController < ApplicationController
     end
   end
 
+  def recent
+    @flyers = Flyer.where("created_at > ?", Time.current - 20.days)
+    render :index
+  end
+
   def show
 
   end
