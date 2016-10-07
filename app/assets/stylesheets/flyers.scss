@@ -44,25 +44,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 header {
-	#logo {
-		float: left;
-		font-size: 1.75rem;
-		width: 66px;
-		height: 66px;    
-		margin-left: 40px;
-		a {
-			@include hide-text;
-			background-image: url(patterns/chm-logo.svg);
-			color: #333233;
-			text-decoration: none;
-			display: block;
-			width: 100%;
-			height: 100%;
-			&:hover {
-				color: #50A7C7;
-			}
-		}
-	}
 	nav {
 		float: right;
 		a {
@@ -84,7 +65,7 @@ header {
 
 .main {
 	
-	background-color: rgba(105,125,143, 0.06);
+	background-color: $light-gray;
 
 }
 
@@ -102,12 +83,16 @@ header {
 .thumb-grid {
 	@include clearfix;
 	li {
+<<<<<<< HEAD
 		@include span-columns(3);
+=======
+		@include span-columns(2.5 of 8);
+>>>>>>> 52048f593ad181b236a7abcd3be455baf7bd4d34
 		.thumb-image-wrapper  {
 			border-radius: 3px;
 			box-shadow: $thumb-shadow;
 			overflow: hidden;
-			background-color: $briliant-blue;
+			background-color: $dark-blue;
 			position: relative;
 			line-height: 0;
 			margin-bottom: 15px;

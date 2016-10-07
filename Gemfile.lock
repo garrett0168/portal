@@ -100,6 +100,8 @@ GEM
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
     i18n (0.7.0)
+    imagesLoaded_rails (4.1.0)
+      railties (>= 3.1)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -236,9 +238,13 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise (~> 4.2)
   haml-rails (~> 0.9.0)
+  imagesLoaded_rails
   jbuilder (~> 2.0)
   jquery-rails
+<<<<<<< HEAD
   jquery-turbolinks
+=======
+>>>>>>> 52048f593ad181b236a7abcd3be455baf7bd4d34
   masonry-rails
   neat
   paperclip (~> 5.1)
@@ -257,4 +263,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.12.5
+   1.13.2

@@ -21,6 +21,11 @@
 //= require masonry/jquery.masonry
 //= require flyers
 //= require app
+<<<<<<< HEAD
+=======
+//= require imagesloaded
+
+>>>>>>> 52048f593ad181b236a7abcd3be455baf7bd4d34
 
 
 //= require turbolinks

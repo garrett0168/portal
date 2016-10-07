@@ -19,7 +19,11 @@
   %h3.sub-headline= params[:category]
   %ul.flyer-thumb-grid.thumb-grid.transitions-enabled#masonry-container
     - @flyers.each do |flyer|
+<<<<<<< HEAD
       %li.thumb 
+=======
+      %li.thumb.grid_box 
+>>>>>>> 52048f593ad181b236a7abcd3be455baf7bd4d34
         .thumb-image-wrapper
           = image_tag flyer.document.url(:medium)
           .thumb-btns 

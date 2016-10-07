@@ -29,29 +29,35 @@
 }
 
 .navigation-header {
-	font-size: 18px;
-	font-weight: bold;
 
-	color: $dark-blue-faded;
+	color: $dark-blue;
+	font-weight: 400;
+	margin-bottom: 12px;
 
-	margin-bottom: 25px;
+	// text-shadow: 1px 1px 2px rgba(255,255,255,0.03), 1px 1px 0px rgba(0,0,0,0.08);
 }
 
 .navigation {
 	@extend .list-unstyled;
 
 	li {
-		line-height: 32px;
+		font-size: 14px;
+		line-height: 2.3em;
 
 		a {
 			width: 100%;
 			text-decoration: none;
-			color: $dark-blue;
+			color: $dark-blue-faded;
 			display: block;
-			@include transition(all 0.2/s $ease-in-quad);
+			padding-left: 15px;
+			margin-left: -15px;
+			background-color: $light-gray;
+			@include transition(all 0.2s $ease-in-quad);
 			&:hover {
-				color: $briliant-blue;
-				@include linear-gradient(to right, transparent, $dark-blue-fade-out);
+				// color: $briliant-blue;
+				background-color: $light-gray-darker;
+				// opacity: 1;
+				// @include linear-gradient(to right, transparent, $dark-blue-fade-out);
 			}
 		}
 	}
@@ -60,7 +66,7 @@
 .headline {
 	color: $dark-blue;
 	font-size: $headline-size;
-	font-weight: bold;
+	font-weight: 400;
 }
 
 .sub-headline {
