@@ -31,13 +31,17 @@
               Browse
           %li
             = link_to "Flyers", flyers_path, class: ""
-          %li
-            = link_to "Logos", logos_path, class: ""
+          / %li
+          /   = link_to "Logos", logos_path, class: ""
           - unless current_page?(root_path)
-            %ul.navigation
-              %li= link_to "New Flyers", recent_flyers_path
-              %li= render 'page_categories'
-
+            %ul.secondary-navigation
+              %li= link_to "New Flyers", recent_flyers_path 
+                - if current_page?(flyers_path) || current_page?(logos_path)
+                  %ul.secondary-navigation
+                    %li
+                      %h3.navigation-header
+                        Type
+                    %li= render 'page_categories'
         %ul.navigation
           %li#marketing-request
             =mail_to "marketing@commercemtg.com", "Marketing Requests"

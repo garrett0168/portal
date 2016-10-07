@@ -11,12 +11,18 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require angular
 //= require angular/app
 //= require_tree ./angular/models
 //= require_tree ./angular/controllers
 //= require modal
+//= require masonry/jquery.masonry
+//= require flyers
+//= require app
 
+
+//= require turbolinks
 //= require typekit
 //= require_tree .

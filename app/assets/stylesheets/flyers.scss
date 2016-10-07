@@ -102,7 +102,7 @@ header {
 .thumb-grid {
 	@include clearfix;
 	li {
-		min-height: 405px;
+		@include span-columns(3);
 		.thumb-image-wrapper  {
 			border-radius: 3px;
 			box-shadow: $thumb-shadow;

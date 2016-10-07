@@ -95,6 +95,9 @@
     transition: opacity 0.25s ease;
     width: 95%;
 
+    img {
+      width: 100%;
+    }
     @include media($medium-screen) {
       max-height: 70%;
       padding: $modal-padding;
