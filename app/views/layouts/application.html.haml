@@ -35,6 +35,7 @@
             = link_to "Logos", logos_path, class: ""
           - unless current_page?(root_path)
             %ul.navigation
+              %li= link_to "New Flyers", recent_flyers_path
               %li= render 'page_categories'
 
         %ul.navigation
