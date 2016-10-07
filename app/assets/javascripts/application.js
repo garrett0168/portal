@@ -17,6 +17,10 @@
 //= require_tree ./angular/models
 //= require_tree ./angular/controllers
 //= require modal
+//= require masonry/jquery.masonry
+//= require flyers
+//= require app
+//= require imagesloaded
 
 //= require typekit
 //= require_tree .

@@ -25,7 +25,7 @@
 					= image_tag logo.document.url(:medium)
 					.thumb-btns	
 						.modal
-							%label{:for => "modal-1"}
+							%label{:for => "modal-#{logo.id}"}
 								.modal-trigger Click for Modal
 						= link_to('Download', logo.document.url(:original, false), :class => "download-btn", :target => "_blank")
 				%h2.title= logo.title

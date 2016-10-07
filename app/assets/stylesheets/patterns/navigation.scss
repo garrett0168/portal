@@ -1,0 +1,34 @@
+.secondary-navigation,
+.tertiary-navigation {
+	margin-top: 35px;
+}
+
+a:active {
+	color: red;
+}
+
+#logo {
+	float: left;
+	font-size: 1.75rem;
+	// width: 66px;
+	height: 66px;
+	opacity: 1; 
+	margin-bottom: 60px;   
+	// margin-left: 40px;
+	a {
+		@include hide-text;
+		background-image: url(patterns/chm-logo.svg);
+		color: #333233;
+		text-decoration: none;
+		display: block;
+		width: 100%;
+		opacity: 1;
+		background-repeat: no-repeat;
+		background-position: 15px center;
+		height: 100%;
+		&:hover {
+			color: #50A7C7;
+			background-color: transparent;
+		}
+	}
+}

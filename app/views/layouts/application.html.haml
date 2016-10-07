@@ -12,7 +12,6 @@
   %body
     %header
       .wrapper.clearfix
-        #logo= link_to "CHM Marketing Portal", root_path
         %nav
           - if user_signed_in?
             = link_to current_user.name, edit_user_registration_path
@@ -27,17 +26,21 @@
       %aside.column.sidebar
         %ul.navigation
           %li
+            #logo= link_to "CHM Marketing Portal", root_path
+          %li
             %h3.navigation-header
               Browse
           %li
             = link_to "Flyers", flyers_path, class: ""
-          %li
-            = link_to "Logos", logos_path, class: ""
-          - unless current_page?(root_path)
-            %ul.navigation
-              %li= link_to "New Flyers", recent_flyers_path
-              %li= render 'page_categories'
-
+          / %li
+          /   = link_to "Logos", logos_path, class: ""
+          %li  
+            - unless current_page?(root_path)
+              %ul.secondary-navigation
+                %li= link_to "New Flyers", recent_flyers_path 
+                %li  
+                  - if current_page?(flyers_path) || current_page?(logos_path)
+                    %li= render 'page_categories'
         %ul.navigation
           %li#marketing-request
             =mail_to "marketing@commercemtg.com", "Marketing Requests"
