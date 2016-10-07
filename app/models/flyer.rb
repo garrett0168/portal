@@ -5,7 +5,7 @@ class Flyer < ActiveRecord::Base
   has_many :flyers_subcategories, inverse_of: :flyer, dependent: :destroy
   has_many :additional_categories, through: :flyers_subcategories, class_name: "Category", source: :category
 
-  validates :category, presence: true
+  validates :category, :title, :document, presence: true
 
   accepts_nested_attributes_for :flyers_subcategories, allow_destroy: true
 
