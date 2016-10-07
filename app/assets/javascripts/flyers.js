@@ -1,11 +1,11 @@
-// $(function(){
+$(function(){
 
-//   $('#masonry-container').masonry({
-//     itemSelector: '.thumb',
-// 	  // set columnWidth a fraction of the container width
-//     columnWidth: function( containerWidth ) {
-//       return containerWidth / 6;
-//     }
-//   });
+  var $container = $('#masonry-container');
+  $container.imagesLoaded( function() {
 
-// });
+    $container.masonry({
+        itemSelector : '.thumb'
+    });    
+  });
+
+});

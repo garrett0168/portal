@@ -21,6 +21,8 @@ header {
 .inner-wrap	{
 	padding: 25px 35px;
 	z-index: 9;
+	// border: 1px solid red;
+	@include clearfix;
 	&.push {
 		padding: 425px 25px 25px 25px;
 	}
@@ -28,7 +30,7 @@ header {
 
 .sidebar {
 
-	padding: 120px 0 0 0;
+	padding: 60px 0 0 0;
 	
 	min-height: 100%;
 	height: 100%;
@@ -58,6 +60,9 @@ header {
 
     &.smaller {
     	height: 140px;
+    	#hero:after {
+    		background-color: $dark-blue-faded;
+    	}
     }
 }
 
@@ -74,18 +79,45 @@ header {
 	background-size: cover;
 	background-position: top left;
 
+	&:after{
+		content: '';
+		z-index: 1;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		// opacity: 0;
+		background-color: $dark-blue-fade-out;
+	    @include transition(all 0.4s ease);
+	}
+
 	#intro {
 		position: absolute;
 		bottom: 25px;
 		padding-left: 35px;
 		margin-bottom: 0;
+		z-index: 2;
 	}
 }
 
+// .grid_box{ 
+// 	@include span-columns(2.5 of 8);
+// 	@include omega(3n);	
+// }
+
 .thumb-grid {
-	padding-top: 50px;
+	width: 100%;
+	// padding-top: 50px;
+	// border: 1px solid red;
+	@include span-columns(8 of 8);
+	@include clearfix;
 	li {
+		margin-right: 0px !important;
+		padding: 15px;
+		width: calc(100%/3);
 		// @include span-columns(3);
+		// padding-bottom: 20px;
 		img {
 			width: 100%;
 		}

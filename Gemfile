@@ -21,9 +21,10 @@ gem 'neat'
 gem 'bitters'                                                                                                  
 gem 'refills'
 gem 'typekit-rails'
-gem 'turbolinks', '~> 5.0.0'
+# gem 'turbolinks', '~> 5.0.0'
 gem 'masonry-rails'
-gem 'jquery-turbolinks'
+# gem 'jquery-turbolinks'
+gem 'imagesLoaded_rails'
 
 # i like angular
 gem 'angularjs-rails'

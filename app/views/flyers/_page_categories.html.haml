@@ -1,3 +1,6 @@
+%li
+  %h3.navigation-header
+    Type
 - Category.roots.select {|cat| cat.flyers.count > 0}.each do |category|
   %li= link_to category.name, flyers_path(category: category.name)       
   - if category.children.any?
@@ -7,3 +10,5 @@
           Filter
       -category.children.each do |subcategory|
         %li= link_to subcategory.name, flyers_path(category: subcategory.name)
+
+

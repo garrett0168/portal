@@ -12,7 +12,6 @@
   %body
     %header
       .wrapper.clearfix
-        #logo= link_to "CHM Marketing Portal", root_path
         %nav
           - if user_signed_in?
             = link_to current_user.name, edit_user_registration_path
@@ -27,6 +26,8 @@
       %aside.column.sidebar
         %ul.navigation
           %li
+            #logo= link_to "CHM Marketing Portal", root_path
+          %li
             %h3.navigation-header
               Browse
           %li
@@ -36,9 +37,6 @@
           %li  
             - if current_page?(flyers_path) || current_page?(logos_path)
               %ul.secondary-navigation
-                %li
-                  %h3.navigation-header
-                    Type
                 %li= render 'page_categories'
 
         %ul.navigation
