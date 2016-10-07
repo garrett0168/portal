@@ -32,27 +32,15 @@
               Browse
           %li
             = link_to "Flyers", flyers_path, class: ""
-<<<<<<< HEAD
           / %li
           /   = link_to "Logos", logos_path, class: ""
-          - unless current_page?(root_path)
-            %ul.secondary-navigation
-              %li= link_to "New Flyers", recent_flyers_path 
-                - if current_page?(flyers_path) || current_page?(logos_path)
-                  %ul.secondary-navigation
-                    %li
-                      %h3.navigation-header
-                        Type
-                    %li= render 'page_categories'
-=======
-          -# %li
-            -# = link_to "Logos", logos_path, class: ""
           %li  
-            - if current_page?(flyers_path) || current_page?(logos_path)
+            - unless current_page?(root_path)
               %ul.secondary-navigation
-                %li= render 'page_categories'
-
->>>>>>> 52048f593ad181b236a7abcd3be455baf7bd4d34
+                %li= link_to "New Flyers", recent_flyers_path 
+                %li  
+                  - if current_page?(flyers_path) || current_page?(logos_path)
+                    %li= render 'page_categories'
         %ul.navigation
           %li#marketing-request
             =mail_to "marketing@commercemtg.com", "Marketing Requests"

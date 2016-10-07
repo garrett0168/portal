@@ -113,15 +113,11 @@ header {
 	@include span-columns(8 of 8);
 	@include clearfix;
 	li {
-<<<<<<< HEAD
-		// @include span-columns(3);
-=======
 		margin-right: 0px !important;
 		padding: 15px;
 		width: calc(100%/3);
 		// @include span-columns(3);
 		// padding-bottom: 20px;
->>>>>>> 52048f593ad181b236a7abcd3be455baf7bd4d34
 		img {
 			width: 100%;
 		}

@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require angular
 //= require angular/app
@@ -21,13 +20,7 @@
 //= require masonry/jquery.masonry
 //= require flyers
 //= require app
-<<<<<<< HEAD
-=======
 //= require imagesloaded
 
->>>>>>> 52048f593ad181b236a7abcd3be455baf7bd4d34
-
-
-//= require turbolinks
 //= require typekit
 //= require_tree .
