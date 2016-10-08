@@ -38,17 +38,18 @@
 
   .modal-fade-screen { // overlay
     @include position(fixed, 0);
-    background-color: rgba(#000, 0.85);
+    // background-color: rgba(#000, 0.85);
+    background-color: $dark-blue-faded;
     opacity: 0;
-    padding-top: 0.6em;
+    // padding-top: 0.6em;
     text-align: left;
     transition: opacity 0.25s ease;
     visibility: hidden;
     z-index: 99999999999;
 
-    @include media($large-screen) {
-      padding-top: 10em;
-    }
+    // @include media($large-screen) {
+    //   // padding-top: 10em;
+    // }
 
     .modal-bg {
       @include position(absolute, 0);
@@ -59,7 +60,8 @@
   .modal-close {
     @include position(absolute, ($modal-padding /2) ($modal-padding /2) null null);
     @include size(1.5em);
-    background: $modal-background;
+    z-index: 999999999999;
+    // background: $modal-background;
     cursor: pointer;
 
     &::after,
@@ -90,7 +92,7 @@
     margin-top: 0;
     max-height: 95%;
     overflow: auto;
-    padding: $modal-padding / 2;
+    padding: 0;
     position: relative;
     transition: opacity 0.25s ease;
     width: 95%;
@@ -99,8 +101,8 @@
       width: 100%;
     }
     @include media($medium-screen) {
-      max-height: 70%;
-      padding: $modal-padding;
+      // max-height: 70%;
+      // padding: $modal-padding;
       width: 60%;
     }
 

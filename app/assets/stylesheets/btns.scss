@@ -41,6 +41,26 @@
 .download-btn {
 	background-image: url(patterns/icons/download_20px.png);
 }
+
+.download-btn-lrg {
+	background-color: $dark-blue;
+	line-height: 35px;
+	padding: 0px 35px;
+	text-align: center;
+	color: #ffffff;
+	display: block;
+	background-image: url(patterns/icons/download_20px.png);
+	background-repeat: no-repeat;
+	background-size: 15px;
+	background-position: center center;
+	@include hide-text;
+	@include transition(all 0.2s $ease-in-out-circ);
+	@include fill-parent;
+	&:hover {
+		background-color: $dark-blue-faded;
+	}
+}
+
 .modal-trigger {
 	background-image: url(patterns/icons/fullview_20px.png);
 }

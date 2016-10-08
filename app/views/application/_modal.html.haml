@@ -5,11 +5,11 @@
       .modal-inner
         .modal-close{for: "modal-#{flyer.id}"} 
         = image_tag flyer.document.url(:large)
-        = link_to('Download', flyer.document.url(:original, false), :class => "download-btn", :target => "_blank")
+        = link_to('Download', flyer.document.url(:original, false), :class => "download-btn-lrg", :target => "_blank")
   -elsif current_page?(logos_path)  
     %input.modal-state{id: "modal-#{logo.id}", type: "checkbox"}/
     .modal-fade-screen
       .modal-inner
         .modal-close{for: "modal-#{logo.id}"} 
         = image_tag logo.document.url(:large)
-        = link_to('Download', logo.document.url(:original, false), :class => "download-btn", :target => "_blank")
+        = link_to('Download', logo.document.url(:original, false), :class => "download-btn-lrg", :target => "_blank")
