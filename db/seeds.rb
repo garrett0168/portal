@@ -32,4 +32,4 @@ category = Category.create(name: 'Recruiting')
 category = Category.create(name: 'Spanish')
 category = Category.create(name: 'Sales Presentations')
 
-User.create!(email: "test@test.com", password: "123456", password_confirmation: "123456")
+User.create!(email: "test@test.com", password: "123456", password_confirmation: "123456", admin: true)
