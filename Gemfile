@@ -45,3 +45,6 @@ group :development do
   gem 'spring'
 end
 
+gem 'rails_admin'
+gem 'rails_admin_nestable'
+gem "cancancan"

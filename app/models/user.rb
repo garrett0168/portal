@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :flyers, inverse_of: :user, dependent: :nullify
+
+  def admin?
+    self.admin
+  end
 end
