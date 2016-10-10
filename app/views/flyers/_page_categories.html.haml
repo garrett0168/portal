@@ -2,7 +2,7 @@
   %li
     %h3.navigation-header
       Type
-  - Category.joins(:flyers).roots.each do |category|
+  - Category.joins(:flyers).roots.distinct.each do |category|
     %li{class: (@category.try(:id) == category.id || @category.try(:parent).try(:id) == category.id) ? 'active' : ''}= link_to category.name, flyers_path(category: category.name)       
   - if @category.present?
     - parent = @category.root? ? @category : @category.parent
