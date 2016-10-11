@@ -63,8 +63,8 @@ h1, h2, h3, h4, h5, h6 {
 .thumb-grid {
 	@include clearfix;
 	li {
-		@include span-columns(3 of 9);
-		@include omega(3n);
+		@include span-columns(3 of 12);
+		@include omega(4n);
 		.thumb-image-wrapper  {
 			border-radius: 3px;
 			box-shadow: $thumb-shadow;
@@ -99,5 +99,6 @@ h1, h2, h3, h4, h5, h6 {
 
 footer {
 	background-color: $footer-bg-color;
+	border-top: 1px solid $dark-blue-faded;
 }
 
