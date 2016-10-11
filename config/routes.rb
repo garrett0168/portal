@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   resources :logos
   resources :categories
 
-  root 'welcome#index'
+  root 'flyers#index'
 end
