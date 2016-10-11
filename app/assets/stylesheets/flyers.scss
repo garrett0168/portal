@@ -38,26 +38,6 @@ h1, h2, h3, h4, h5, h6 {
 	color: #9B9B9B;
 }
 
-.active {
-	color: $briliant-blue;
-	font-weight: bold;
-}
-
-header {
-	nav {
-		float: right;
-		a {
-			margin-left: 1.5rem;
-			line-height: 2;
-			color: #9B9B9B;
-			text-decoration: none;
-			&:hover {
-				color: #50A7C7;
-			}
-		}
-	}
-}
-
 .notice,
 .alert {
 	display: none;

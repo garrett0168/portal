@@ -64,16 +64,6 @@
 	}
 }
 
-.headline {
-	color: $dark-blue;
-	font-size: $headline-size;
-	font-weight: 400;
-}
-
-.sub-headline {
-	color: $dark-blue-faded;
-	font-size: $sub-headline-size;
-}
 
 footer { 
 	text-align: center;
@@ -83,7 +73,8 @@ footer {
 		font-weight: bold;
 	    line-height: 160px;
 		a {
-			color: $dark-blue-faded;
+			// color: $dark-blue-faded;
+			color: $bright-green;
 			font-weight: 400;
 		}
 	}

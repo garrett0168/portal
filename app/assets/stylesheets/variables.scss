@@ -11,6 +11,10 @@ $intro-color: #ffffff;
 $light-gray: tint( rgb(105,125,143), 80%);
 $light-gray-darker: tint( rgb(105,125,143), 70%);
 
+// $bright-green: #64E4D3;
+$bright-green: tint($briliant-blue,15%);
+
+
 //images
 
 $hero-image: url(hero.png);
@@ -18,7 +22,7 @@ $hero-image: url(hero.png);
 
 //font-sizing
 
-$headline-size: 48px;
+$headline-size: 24px;
 $sub-headline-size: 24px;
 
 //shadow 
@@ -29,3 +33,7 @@ $thumb-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
 // Background
 
 $footer-bg-color: #fafafa;
+
+.transition {
+	@include transition(all 0.2s $ease-in-out-circ);
+}

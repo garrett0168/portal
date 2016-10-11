@@ -12,11 +12,11 @@
         Welcome to the new
         %br/
         %span.sub-title
-          CHM Marketing Portal.
-
-.inner-wrap.push  
-  %h2.headline Flyers
-  %h3.sub-headline= params[:category]
+          CHM Marketing Portal. 
+.pagination.push
+  %h2.headline= params[:category]
+  %h3.sub-headline Flyers
+.inner-wrap 
   %ul.flyer-thumb-grid.thumb-grid.transitions-enabled#masonry-container
     - @flyers.each do |flyer|
       %li.thumb.grid_box 
@@ -30,7 +30,7 @@
         %h2.title= flyer.title
         %p.description
           = flyer.description
-          %span
-            = flyer.category.name
+          / %span
+          /   = flyer.category.name
         = render partial: 'modal', locals: { flyer: flyer }
       
