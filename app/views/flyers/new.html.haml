@@ -1,5 +1,19 @@
-%h1
-  new
-
-.inner-wrap.push  
-  = render 'form'
+#hero-wrap.sub-hero
+  #hero
+    - if user_signed_in?
+      %p#intro
+        Welcome
+        = current_user.name
+        %br/
+        %span.sub-title
+          CHM Marketing Portal.
+    - else
+      %p#intro
+        Welcome to the new
+        %br/
+        %span.sub-title
+          CHM Marketing Portal.
+.inner-wrap.push 
+  %h2.headline Flyers
+  .new-flyer	  
+    = render 'form'

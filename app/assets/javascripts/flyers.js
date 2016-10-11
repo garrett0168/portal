@@ -5,7 +5,8 @@ $(function(){
   $container.imagesLoaded( function() {
 
     $container.masonry({
-        itemSelector : '.thumb'
+        itemSelector : '.thumb',
+        originLeft: true
     });    
   });
 });
