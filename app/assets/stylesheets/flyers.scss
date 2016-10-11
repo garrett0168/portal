@@ -83,8 +83,8 @@ header {
 .thumb-grid {
 	@include clearfix;
 	li {
-		@include span-columns(3);
-		@include span-columns(2.5 of 8);
+		@include span-columns(3 of 9);
+		@include omega(3n);
 		.thumb-image-wrapper  {
 			border-radius: 3px;
 			box-shadow: $thumb-shadow;
