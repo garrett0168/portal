@@ -15,6 +15,7 @@
         %nav
           - if user_signed_in?
             = link_to current_user.name, edit_user_registration_path
+            = link_to "Sign Out", destroy_user_session_path, :method => :delete
           - else
             = link_to "Sign in", new_user_session_path, class: ""
           - if current_user && current_user.admin?
@@ -40,6 +41,7 @@
         %ul.navigation
           %li#marketing-request
             =mail_to "marketing@commercemtg.com", "Marketing Requests"
+        =link_to("Back Up", "javascript:void(0)", :class => "scrollToTop")
       %article.column.content
         = yield
     = render 'footer'

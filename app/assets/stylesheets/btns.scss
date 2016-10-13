@@ -16,7 +16,7 @@
 }
 
 .download-btn,
-.modal-trigger {	
+.modal-trigger{	
 	height: 40px;
 	width: 50%;
 	
@@ -86,3 +86,31 @@
 		background: shade($briliant-blue, 20%);
 	}
 }
+
+.admin-btns {
+	background-color: transparent;
+	font-size: 10px;
+	text-align: center;
+	line-height: 15px;
+	width: 50%;
+	
+	opacity: 0;
+	float: left;
+
+	color: $dark-blue;
+
+	border: 1px solid $dark-blue;
+	&.edit {
+		border-right: 0px solid $dark-blue;
+	}
+	&:hover {
+		background-color: tint($dark-blue-faded, 15%);
+		&.delete {
+			color: red;
+		}
+		&.edit {
+			color: green;
+		}
+	}
+}
+

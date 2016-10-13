@@ -33,4 +33,7 @@
           / %span
           /   = flyer.category.name
         = render partial: 'modal', locals: { flyer: flyer }
+        - if current_user && current_user.admin?
+          =link_to "Edit", edit_flyer_path(flyer), :class=>"admin-btns edit"
+          =link_to "Destroy", flyer_path(flyer), method: :delete, data: { confirm: "Are you sure?"}, :class=>"admin-btns delete"
       

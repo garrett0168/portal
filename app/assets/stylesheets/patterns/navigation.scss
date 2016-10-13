@@ -97,7 +97,6 @@ a:active {
 
 }
 
-
 .active {
 	a {
 		color: $briliant-blue !important;
@@ -105,3 +104,24 @@ a:active {
 	}
 }
 
+.scrollToTop {
+    margin: 0;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;;
+    z-index: 100;
+    display: none;
+    text-decoration: none;
+    color: $dark-blue;
+    background-color: $dark-blue-faded;
+    padding: 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+    @extend .transition;
+}
+.scrollToTop:hover {
+    background-color: $dark-blue;
+    color: tint($dark-blue, 50%);
+    text-decoration: none;
+}
