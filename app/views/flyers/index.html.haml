@@ -1,4 +1,4 @@
-#hero-wrap
+#hero-wrap.hero-wrap-js
   #hero
     - if user_signed_in?
       %p#intro
@@ -19,7 +19,7 @@
 .inner-wrap 
   %ul.flyer-thumb-grid.thumb-grid.transitions-enabled#masonry-container
     - @flyers.each do |flyer|
-      %li.thumb.grid_box 
+      %li.thumb.grid_box
         .thumb-image-wrapper
           = image_tag flyer.document.url(:medium)
           .thumb-btns 

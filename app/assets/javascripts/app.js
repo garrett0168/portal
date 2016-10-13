@@ -1,8 +1,8 @@
 $(window).scroll(function() {
   if ($(this).scrollTop() > 200){ 
-    $('#hero-wrap').addClass("smaller");
+    $('.hero-wrap-js').addClass("smaller");
   }
   else{
-    $('#hero-wrap').removeClass("smaller");
+    $('.hero-wrap-js').removeClass("smaller");
   }
 });

@@ -25,6 +25,9 @@ header {
 	@include clearfix;
 	&.push {
 		padding: 325px 25px 25px 25px;
+		&-sm {
+			padding-top: 165px;
+		}
 	}
  }
 

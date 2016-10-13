@@ -19,12 +19,14 @@ header {
 				// color: shade($bright-green, 25%);
 				text-shadow: 1px 1px 2px $dark-blue-faded;
 				// border: 0;
-				background-color: $dark-blue-faded;
-				border: 1px solid shade($bright-green, 25%);
+				color: #fff;
+				background-color: $dark-blue;
+				border: 1px solid shade($dark-blue, 25%);
 				&:hover {
-					color: $bright-green;
-					border: 1px solid $bright-green;
+					// color: $bright-green;
+					// border: 1px solid $bright-green;
 					text-shadow: 1px 1px 2px $dark-blue;
+					background-color: shade($dark-blue, 25%);
 				}
 			}
 		}

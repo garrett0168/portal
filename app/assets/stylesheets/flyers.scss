@@ -102,3 +102,7 @@ footer {
 	border-top: 1px solid $dark-blue-faded;
 }
 
+
+.new-flyer	{
+	@include pad(25px);
+}
