@@ -17,7 +17,6 @@
             = link_to current_user.name, edit_user_registration_path
           - else
             = link_to "Sign in", new_user_session_path, class: ""
-            / = link_to "Sign Up", new_user_registration_path, class: "button"
           - if current_user && current_user.admin?
             = link_to "Add New Flyer", new_flyer_path, class: "button"
     %p.notice= notice
@@ -31,10 +30,6 @@
           %li
             %h3.navigation-header
               Browse
-          /%li
-          /  = link_to "Flyers", flyers_path, class: ""
-          / %li
-          /   = link_to "Logos", logos_path, class: ""
           %li= link_to "Flyers", recent_flyers_path 
           %li  
             - unless current_page?(root_path)
