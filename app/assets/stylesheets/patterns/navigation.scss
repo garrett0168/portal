@@ -110,7 +110,8 @@ a:active {
     bottom: 25px;
     right: 25px;;
     z-index: 100;
-    display: none;
+    display: block;
+    opacity: 0;
     text-decoration: none;
     color: $dark-blue;
     background-color: $dark-blue-faded;
@@ -120,6 +121,11 @@ a:active {
     text-align: center;
     @extend .transition;
 }
+
+.show-scroll{
+	opacity: 1;
+}
+
 .scrollToTop:hover {
     background-color: $dark-blue;
     color: tint($dark-blue, 50%);

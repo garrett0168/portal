@@ -10,9 +10,9 @@ $(function(){
 
 	$(window).scroll(function(){
 	    if ($(this).scrollTop() > 600) {
-	        $(".scrollToTop").fadeIn(1000)
+	        $(".scrollToTop").addClass("show-scroll");
 	    } else {
-	        $(".scrollToTop").fadeOut(1000);
+	        $(".scrollToTop").removeClass("show-scroll");
 	    }
 	});
 
