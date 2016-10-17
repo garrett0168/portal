@@ -12,10 +12,12 @@
         Welcome to the new
         %br/
         %span.sub-title
-          CHM Marketing Portal. 
+          CHM Marketing Portal 
 .pagination.push
-  %h2.headline= params[:category]
-  %h3.sub-headline Flyers
+  / %h2.headline
+  %h3.sub-headline 
+    Flyers 
+    = params[:category]
 .inner-wrap 
   %ul.flyer-thumb-grid.thumb-grid.transitions-enabled#masonry-container
     - @flyers.each do |flyer|

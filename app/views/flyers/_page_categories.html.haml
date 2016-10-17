@@ -1,14 +1,29 @@
+/ %ul.secondary-navigation
+/   %li
+/     %h3.navigation-header
+/       Type
+/   - Category.joins(:flyers).roots.distinct.each do |category|
+/     %li{class: (@category.try(:id) == category.id || @category.try(:parent).try(:id) == category.id) ? 'active' : ''}= link_to category.name, flyers_path(category: category.name)       
+/   - if @category.present?
+/     - parent = @category.root? ? @category : @category.parent
+/     %ul.tertiary-navigation
+/       %li
+/         %h3.navigation-header
+/           Filter
+/       - parent.children.each do |subcategory|
+/         %li{class: @category.try(:id) == subcategory.id ? 'active' : ''}= link_to subcategory.name, flyers_path(category: subcategory.name)
+
 %ul.secondary-navigation
   %li
     %h3.navigation-header
-      Type
+      Filter
   - Category.joins(:flyers).roots.distinct.each do |category|
-    %li{class: (@category.try(:id) == category.id || @category.try(:parent).try(:id) == category.id) ? 'active' : ''}= link_to category.name, flyers_path(category: category.name)       
-  - if @category.present?
-    - parent = @category.root? ? @category : @category.parent
-    %ul.tertiary-navigation
-      %li
-        %h3.navigation-header
-          Filter
-      - parent.children.each do |subcategory|
-        %li{class: @category.try(:id) == subcategory.id ? 'active' : ''}= link_to subcategory.name, flyers_path(category: subcategory.name)
+    %li
+      %div{class: (@category.try(:id) == category.id || @category.try(:parent).try(:id) == category.id) ? 'active' : ''}       
+        = link_to category.name, flyers_path(category: category.name), class: 'main-nav'
+    - if @category.present?
+      - parent = @category.root? ? @category : @category.parent
+      %ul.secondary
+        -category.children.each do |subcategory|
+          %li{class: @category.try(:id) == subcategory.id ? 'active' : ''}
+            = link_to subcategory.name, flyers_path(category: subcategory.name)

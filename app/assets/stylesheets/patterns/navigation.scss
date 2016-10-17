@@ -39,10 +39,6 @@ header {
 	margin-top: 35px;
 }
 
-a:active {
-	color: red;
-}
-
 #logo {
 	// float: left;
 	font-size: 1.75rem;
@@ -130,4 +126,9 @@ a:active {
     background-color: $dark-blue;
     color: tint($dark-blue, 50%);
     text-decoration: none;
+}
+
+
+.secondary{
+	padding-left: 15px;
 }

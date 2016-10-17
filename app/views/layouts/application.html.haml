@@ -33,11 +33,8 @@
               Browse
           %li= link_to "Flyers", recent_flyers_path 
           %li  
-            - unless current_page?(root_path)
-              %ul.secondary-navigation
-                %li  
-                  - if current_page?(flyers_path) || current_page?(logos_path) || current_page?(recent_flyers_path) 
-                    %li= render 'page_categories'
+            - if current_page?(flyers_path) || current_page?(logos_path) || current_page?(recent_flyers_path) 
+              = render 'page_categories'
         %ul.navigation
           %li#marketing-request
             =mail_to "marketing@commercemtg.com", "Marketing Requests"
