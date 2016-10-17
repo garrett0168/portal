@@ -45,7 +45,9 @@ header {
 	// width: 66px;
 	height: 66px;
 	opacity: 1; 
-	margin-bottom: 60px;   
+	margin-bottom: 60px; 
+	width: 100%;
+	display: block;  
 	// margin-left: 40px;
 	a {
 		@include hide-text;
