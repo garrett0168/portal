@@ -63,23 +63,26 @@ h1, h2, h3, h4, h5, h6 {
 .thumb-grid {
 	@include clearfix;
 	li {
-		@include span-columns(3 of 12);
-		@include omega(4n);
+		@include span-columns(4 of 12);
+		@include omega(3n);
 		.thumb-image-wrapper  {
 			border-radius: 3px;
 			box-shadow: $thumb-shadow;
 			overflow: hidden;
-			background-color: $dark-blue;
 			position: relative;
 			line-height: 0;
+			background-color: #fff;
 			margin-bottom: 15px;
 			img {
+				width: 100%;
 				@include transition(all 0.2s $ease-in-out-circ);
 			}
 		}
 
 		&:hover {
-
+			.thumb-image-wrapper  {		
+				background-color: $dark-blue;
+			}
 			img {
 				opacity: 0.8;
 			}

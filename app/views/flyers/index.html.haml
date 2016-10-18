@@ -17,7 +17,9 @@
   / %h2.headline
   %h3.sub-headline 
     Flyers 
-    = params[:category]
+    - if current_page?(flyers_path) 
+      –
+      = params[:category]
 .inner-wrap 
   %ul.flyer-thumb-grid.thumb-grid.transitions-enabled#masonry-container
     - @flyers.each do |flyer|
