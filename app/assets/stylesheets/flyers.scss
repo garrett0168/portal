@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 			.thumb-image-wrapper  {		
 				background-color: $dark-blue;
 			}
-			img {
+			> img {
 				opacity: 0.8;
 			}
 			.admin-btns {
@@ -111,4 +111,13 @@ footer {
 
 .new-flyer	{
 	@include pad(25px);
+}
+
+.thumb-grid img,
+.modal-inner img{
+	image-rendering: -moz-crisp-edges;         /* Firefox */
+	image-rendering:   -o-crisp-edges;         /* Opera */
+	image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+	image-rendering: crisp-edges;
+	-ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
 }
