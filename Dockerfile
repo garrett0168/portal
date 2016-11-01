@@ -58,6 +58,7 @@ WORKDIR $APPLICATION_BASE_DIR
 COPY . ./ \
     && chmod 755 ./dockerfiles/entrypoint.sh
 
+
 # Perform asset precompilation at build time to avoid the 5 - 10 minute hit at application startup time.
 # See the entrypoint.sh file for db migrations, etc.
 # RUN rake secret
