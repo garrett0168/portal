@@ -1,0 +1,31 @@
+#
+# Local dev env version of our application composition file for the Retail Marketing Portal 
+#
+# Builds the full application from 2 images - web (rails app), db (currently postgres).  nginx is not used in local or dev env's.
+#
+# Webapp application files are mounted from the developer's local (host) project directory.
+# *** The default location is ~/projects/retail-portal.  
+#
+# The db files are mounted from the host.  The db database files survive new
+# container builds/deploys.
+#
+# This file:
+#   - Allows for lifecycle management of the app - start, stop, restart, initial up, pulling of new container versions, etc.
+#   - Mostly inherits baked-in defaults for dev
+#   - Does not use nginx as a static content server; connect to puma port directly
+#   - Exposes log files to host filesystem for dev monitoring
+#   - DB port can be accessed from host to allow for db tool use
+#   - Currently specifies 1 thread per worker process.  This must remain like this until the app is tested in multi-threaded mode
+#   - Pulls the web image locally by default.  Edit "image: " line for using an official CHM-repository-based docker image.
+#
+# Requires docker-compose version 1.6+
+#
+# See Docker Engine and Docker Compose docs at docker.com.
+#
+version: '2'
+services:
+  web:
+    # From your local docker repository
+    image: local/retail-portal:$CI_BUILD_REF
+    volumes:
+      - ~/projects/retail-portal:/srv/www/htdocs

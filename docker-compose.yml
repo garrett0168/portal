@@ -1,0 +1,53 @@
+# Shared dev env version of our application composition file for commercehomemortgage.com retail website app.
+#
+# Builds the full application from 2 images - web (rails app), db (currently mysql).
+# nginx is not used in dev.
+#
+# Webapp application files are added during the docker image build and remain contained in the image.  The
+# db files are volue-mounted from the host.  The db database files survive new container builds/deploys.
+#
+# This file:
+#   - Allows for lifecycle management of the app - start, stop, restart, initial up, pulling of new container versions, etc.
+#   - Mostly inherits baked-in defaults for dev
+#   - Does not use nginx as a static content server; connect to puma port directly
+#   - Exposes log files to host filesystem for dev monitoring
+#   - DB port can be accessed from host to allow for db tool use
+#   - Currently specified 1 thread per worker process.  This must remain like this until the app is tested in multi-threaded mode
+#   - Pulls the web image from the CHM docker repository.  Edit "image: " line for using a local docker image.
+version: '2'
+services:
+  web:
+    # From our in-house docker repository
+    image: cm-dev-04.bwcmtg.com:5000/retail-portal:$CI_BUILD_REF
+    environment:
+      - COMMIT_ID=$CI_BUILD_REF
+      - RACK_ENV=development
+      - RAILS_ENV=development
+      - RAILS_SERVE_STATIC_FILES=true
+      - MAIL_AS_USER_PASSWORD=P@s5w0rd
+    links:
+      - db
+    ports:
+      - "5000:5000"
+    volumes:
+      - retail-portal:/srv/www/htdocs
+      # Will likely be used in future
+      # - /srv/www/system:/srv/www/htdocs/public/system
+      # - /srv/www/logos:/srv/www/htdocs/public/logos
+      # - /srv/www/loan-officer-images:/srv/www/htdocs/public/LOImages
+      # - /srv/www/loan-officer-signatures:/srv/www/htdocs/public/LOSignatures
+      # - /srv/www/lobw-photos:/srv/www/htdocs/public/LOBWPhotos
+    restart: always
+  db:
+    image: postgres:9.5
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD="nuggets6"
+      - POSTGRES_DB=retail-portal
+    volumes:
+      - /srv/db/postgresql/retail-portal:/var/lib/postgresql
+    restart: always
+volumes:
+  retail-portal:

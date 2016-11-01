@@ -1,0 +1,9 @@
+.git
+.gitignore
+log/*
+tmp/*
+.bundle
+tags
+README.rdoc
+.gitlab-ci.yml
+
