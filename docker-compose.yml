@@ -28,7 +28,7 @@ services:
     links:
       - db
     ports:
-      - "5000:5000"
+      - "5050:5000"
     volumes:
       - retail-portal:/srv/www/htdocs
       # Will likely be used in future
@@ -41,7 +41,7 @@ services:
   db:
     image: postgres:9.5
     ports:
-      - "5432:5432"
+      - "5442:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD="nuggets6"
