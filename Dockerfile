@@ -55,7 +55,8 @@ RUN  gem install bundler \
 
 # Copy project files to runtime base dir
 WORKDIR $APPLICATION_BASE_DIR
-COPY . ./
+COPY . ./ && \
+    RUN chmod 755 ./dockerfiles/entrypoint.sh
 
 # Perform asset precompilation at build time to avoid the 5 - 10 minute hit at application startup time.
 # See the entrypoint.sh file for db migrations, etc.
