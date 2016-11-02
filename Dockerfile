@@ -1,4 +1,4 @@
-FROM ruby:2.3.0-slim
+FROM ruby:2.3
 MAINTAINER Chris Volk cvolk@commercemtg.com
 
 # Baked-in default env vars: Based on Dev settings.  
