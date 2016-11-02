@@ -21,6 +21,7 @@ gem 'neat'
 gem 'bitters'                                                                                                  
 gem 'refills'
 gem 'typekit-rails'
+germ 'foreman'
 
 #layout
 gem 'masonry-rails'
