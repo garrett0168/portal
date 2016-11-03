@@ -44,8 +44,8 @@ services:
       - "5442:5432"
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD="nuggets6"
-      - POSTGRES_DB=retail-portal
+      - POSTGRES_PASSWORD=nuggets6
+      - POSTGRES_DB=portal_dev
     volumes:
       - /srv/db/postgresql/retail-portal:/var/lib/postgresql
     restart: always

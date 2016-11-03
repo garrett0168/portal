@@ -6,8 +6,8 @@ if [ $# -eq 0 ]; then
      foreman run bundle exec rake db:migrate     
      foreman run bundle exec rake db:seed  
      
-     exec foreman start "$@"
+     exec foreman start 
 else
-    exec "$@" 
+    exec "$@"
 fi
 

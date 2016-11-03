@@ -4,9 +4,8 @@ development:
   database: portal_dev
   pool: 5
   username: postgres
-  password: 
-  host: localhost
-  port: 5442
+  password: nuggets6
+  host: db
 test:
   adapter: postgresql
   encoding: unicode
@@ -14,7 +13,7 @@ test:
   pool: 5
   username: postgres
   password:
-  host: localhost
+  host: db
 production:
   adapter: postgresql
   encoding: unicode
@@ -22,4 +21,4 @@ production:
   pool: 5
   username: postgres
   password: ENV['POSTGRES_PASSWORD']
-  host: localhost
+  host: db
