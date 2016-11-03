@@ -31,12 +31,12 @@ test_dev_image:
   stage: test
   script:
     - echo "[test] COMMIT_ID $CI_BUILD_REF"
-    - docker-compose -f docker-compose.yml down
+    - docker-compose -f docker-compose.yml down -v
     - docker-compose -f docker-compose.yml up -d
-    - docker exec chmretailwebsite_web_1 env
-    - docker exec chmretailwebsite_web_1 foreman run -e test.env bundle exec rake db:drop db:create db:schema:load
-    - docker exec chmretailwebsite_web_1 foreman run -e test.env bundle exec rspec
-    - docker exec chmretailwebsite_web_1 foreman run -e test.env bundle exec cucumber
+    - docker exec retailportal_web_1 env
+    - docker exec retailportal_web_1 foreman run -e test.env bundle exec rake db:drop db:create db:schema:load
+    - docker exec retailportal_web_1 foreman run -e test.env bundle exec rspec
+    - docker exec retailportal_web_1 foreman run -e test.env bundle exec cucumber
     - docker-compose -f docker-compose.yml stop
   only:
     - master
@@ -85,8 +85,7 @@ dev_cleanup:
   stage: cleanup
   script:
     - echo "[Cleanup] COMMIT_ID $CI_BUILD_REF"
-    - docker-compose -f docker-compose.yml stop
-    - docker-compose -f docker-compose.yml rm -f
+    - docker-compose -f docker-compose.yml down -v
   only:
     - master
   tags:
@@ -96,8 +95,7 @@ prod_cleanup:
   stage: cleanup
   script:
     - echo "[Cleanup] COMMIT_ID $CI_BUILD_REF"
-    - docker-compose -f docker-compose.yml -f docker-compose.prod_override.yml stop
-    - docker-compose -f docker-compose.yml -f docker-compose.prod_override.yml rm -f
+    - docker-compose -f docker-compose.yml -f docker-compose.prod_override.yml down -v
   only:
     - production
   tags:
