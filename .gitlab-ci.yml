@@ -35,8 +35,7 @@ test_dev_image:
     - docker-compose -f docker-compose.yml up -d
     - docker exec retailportal_web_1 env
     - docker exec retailportal_web_1 foreman run -e test.env bundle exec rake db:drop db:create db:schema:load
-    - docker exec retailportal_web_1 foreman run -e test.env bundle exec rspec
-    - docker exec retailportal_web_1 foreman run -e test.env bundle exec cucumber
+    - docker exec retailportal_web_1 foreman run -e test.env bundle exec rake test
     - docker-compose -f docker-compose.yml stop
   only:
     - master
@@ -47,7 +46,7 @@ test_prod_image:
   stage: test
   script:
     - echo "[test prod] COMMIT_ID $CI_BUILD_REF"
-    - echo "Skipping prod rspec tests given issues with testing prod and rpsec presence"
+    - echo "Skipping tests for prod build."
   only:
     - production
   tags:
