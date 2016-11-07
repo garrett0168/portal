@@ -19,6 +19,8 @@ services:
   web:
     # From our in-house docker repository
     image: cm-dev-04.bwcmtg.com:5000/retail-portal:$CI_BUILD_REF
+    depends_on:
+      - db
     environment:
       - COMMIT_ID=$CI_BUILD_REF
       - RACK_ENV=development
