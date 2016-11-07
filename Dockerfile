@@ -22,9 +22,9 @@ RUN apt-get update \
         git \
         file \
         nodejs \
-        # imagemagick \
-        # libpng12++ \
-        # libxrender1 \
+        imagemagick \
+        libpng12++ \
+        libxrender1 \
         libfontconfig1 \
         libpq-dev \
     && apt-get clean
