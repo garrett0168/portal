@@ -22,6 +22,7 @@ RUN apt-get update \
         git \
         file \
         nodejs \
+        netcat \
         imagemagick \
         libpng12++ \
         libxrender1 \
