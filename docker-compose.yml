@@ -33,8 +33,8 @@ services:
       - "5050:5050"
     volumes:
       - retail-portal:/srv/www/htdocs
+      - system:/srv/www/htdocs/public/system
       # Will likely be used in future
-      # - /srv/www/system:/srv/www/htdocs/public/system
       # - /srv/www/logos:/srv/www/htdocs/public/logos
       # - /srv/www/loan-officer-images:/srv/www/htdocs/public/LOImages
       # - /srv/www/loan-officer-signatures:/srv/www/htdocs/public/LOSignatures
@@ -53,3 +53,7 @@ services:
     restart: always
 volumes:
   retail-portal:
+  system:
+    driver: nfs
+    driver_opts:
+      share: 10.254.4.119:/webdata/retail-portal/system
