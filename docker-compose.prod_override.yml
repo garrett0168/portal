@@ -50,7 +50,7 @@ services:
       - 80:80
     volumes:
       - retail-portal:/srv/www/htdocs
-#      - system:/srv/www/htdocs/public/system
+      - attachments:/srv/www/htdocs/public/attachments
 #      - logos:/srv/www/htdocs/public/logos
 #      - LOImages:/srv/www/htdocs/public/LOImages
 #      - LOSignatures:/srv/www/htdocs/public/LOSignatures
@@ -58,10 +58,10 @@ services:
     restart: always
 # Volumes used by services.  In this production configuration, we are using nfs mounts to a volume in our private cloud
 volumes:
-  system:
+  attachments:
     driver: nfs
     driver_opts:
-      share: 10.254.4.119:/webdata/system
+      share: 10.254.4.119:/webdata/retail-portal/attachments
 #  logos:
 #      driver: nfs
 #      driver_opts:

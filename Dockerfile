@@ -24,6 +24,7 @@ RUN apt-get update \
         nodejs \
         netcat \
         imagemagick \
+        ghostscript \
         libpng12++ \
         libxrender1 \
         libfontconfig1 \
