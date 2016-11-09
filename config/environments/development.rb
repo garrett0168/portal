@@ -43,6 +43,7 @@ Rails.application.configure do
   config.paperclip_defaults = {
     :url => "/system/:rails_env/:class/:attachment/:id_partition/:style/:filename",
     :path => ":rails_root/public:url",
-    :override_file_permissions => 0755
+    :override_file_permissions => 0755,
+    :command_path => "/usr/bin/identify"
   }
 end
