@@ -32,8 +32,8 @@ services:
     ports:
       - "5050:5050"
     volumes:
-      - retail-portal:/srv/www/htdocs
-      - system:/srv/www/htdocs/public/system
+      - retail-portal-web:/srv/www/htdocs
+      - retail-portal-web-system:/srv/www/htdocs/public/system
       # Will likely be used in future
       # - /srv/www/logos:/srv/www/htdocs/public/logos
       # - /srv/www/loan-officer-images:/srv/www/htdocs/public/LOImages
@@ -41,19 +41,28 @@ services:
       # - /srv/www/lobw-photos:/srv/www/htdocs/public/LOBWPhotos
     restart: always
   db:
-    image: postgres:9.5
+    #image: postgres:9.5
+    image: sameersbn/postgresql:9.5-3
     expose:
       - "5432"
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=nuggets6
-      - POSTGRES_DB=portal_dev
+      - DB_PASS=nuggets6
+      - DB_USER=dbuser
+      - DB_NAME=portal_dev
+      - USERMAP_UID=999
+      - USERMAP_GID=999
+      - DB_EXTENSION=pg_trgm
     volumes:
-      - /srv/db/postgresql/retail-portal:/var/lib/postgresql
+      - retail-portal-db:/var/lib/postgresql
     restart: always
 volumes:
-  retail-portal:
-  system:
+  retail-portal-web:
+  retail-portal-db:
     driver: nfs
     driver_opts:
-      share: 10.254.4.119:/webdata/retail-portal/system
+      share: 10.254.4.119:/webdata/retail-portal/db/development
+  retail-portal-web-system:
+    driver: nfs
+    driver_opts:
+      share: 10.254.4.119:/webdata/retail-portal/web/system
+      

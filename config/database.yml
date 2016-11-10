@@ -3,22 +3,22 @@ development:
   encoding: unicode
   database: portal_dev
   pool: 5
-  username: postgres
-  password: nuggets6
+  username: ENV['DB_USER']
+  password: ENV['DB_PASS']
   host: db
 test:
   adapter: postgresql
   encoding: unicode
   database: portal_test
   pool: 5
-  username: postgres
-  password:
+  username: ENV['DB_USER']
+  password: ENV['DB_PASS']
   host: db
 production:
   adapter: postgresql
   encoding: unicode
   database: portal_prod
   pool: 5
-  username: postgres
-  password: ENV['POSTGRES_PASSWORD']
+  username: ENV['DB_USER']
+  password: ENV['DB_PASS']
   host: db
