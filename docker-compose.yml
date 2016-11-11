@@ -26,7 +26,8 @@ services:
       - RACK_ENV=development
       - RAILS_ENV=development
       - RAILS_SERVE_STATIC_FILES=true
-      - MAIL_AS_USER_PASSWORD=P@s5w0rd
+      - DB_PASS=nuggets6
+      - DB_USER=dbuser
     links:
       - db
     ports:
