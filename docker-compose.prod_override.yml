@@ -1,6 +1,6 @@
-# Production application composition override file for commercehomemortgage.com retail website app.
+# Production application composition override file for chmmarketingportal.com retail website app.
 #
-# Builds the full application from 3 images - web (rails app), db (currently mysql, and nginx
+# Builds the full application from 3 images - web (rails app), db (currently mysql, and nginx)
 #
 # Webapp and nginx configuration files are added during the docker image build and remain contained in the image.  The
 # db files are mounted from the host.  The db database files survive new container builds/deploys.
@@ -15,7 +15,7 @@
 #   - Uses our own nginx docker image that contains the files it needs to avoid exposing configuration to the host OS for prod mode
 #   - Pulls the web image from the CHM docker repository
 #
-# Requires docker-compose 1.5+
+# Requires docker-compose 1.6+
 #
 # This file extends/overrides the base docker-compose.yml file.
 #
@@ -25,57 +25,12 @@ services:
     environment:
       - RACK_ENV=production
       - RAILS_ENV=production
-      - RAILS_SERVE_STATIC_FILES=false
-      # Store sensitive data temporarily until prod CI setup is completed.
-      - MAIL_AS_USER_PASSWORD=P@s5w0rd
-      - SECRET_KEY_BASE=""
-    volumes:
-      - retail-portal:/srv/www/htdocs
-#      - system:/srv/www/htdocs/public/system
-#      - logos:/srv/www/htdocs/public/logos
-#      - LOImages:/srv/www/htdocs/public/LOImages
-#      - LOSignatures:/srv/www/htdocs/public/LOSignatures
-#      - LOBWPhotos:/srv/www/htdocs/public/LOBWPhotos
-#    privileged: true
+      - RAILS_SERVE_STATIC_FILES=true
   db:
     environment:
-      - MYSQL_USER=root
-      # TODO: Fix this - should use a password on the database, and the vault in Gitlab to store the password value.
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-  proxy:
-    image: cm-dev-04.bwcmtg.com:5000/retail-portal-proxy:latest
-    links:
-      - web
-    ports:
-      - 80:80
-    volumes:
-      - retail-portal:/srv/www/htdocs
-      - attachments:/srv/www/htdocs/public/attachments
-#      - logos:/srv/www/htdocs/public/logos
-#      - LOImages:/srv/www/htdocs/public/LOImages
-#      - LOSignatures:/srv/www/htdocs/public/LOSignatures
-#      - LOBWPhotos:/srv/www/htdocs/public/LOBWPhotos
-    restart: always
-# Volumes used by services.  In this production configuration, we are using nfs mounts to a volume in our private cloud
+      - DB_NAME=portal_prod
 volumes:
-  attachments:
+  retail-portal-db:
     driver: nfs
     driver_opts:
-      share: 10.254.4.119:/webdata/retail-portal/attachments
-#  logos:
-#      driver: nfs
-#      driver_opts:
-#        share: 10.254.4.119:/webdata/logos
-#  LOImages:
-#      driver: nfs
-#      driver_opts:
-#        share: 10.254.4.119:/webdata/LOImages
-#  LOSignatures:
-#      driver: nfs
-#      driver_opts:
-#        share: 10.254.4.119:/webdata/LOSignatures
-#  LOBWPhotos:
-#      driver: nfs
-#      driver_opts:
-#        share: 10.254.4.119:/webdata/LOBWPhotos
-
+      share: 10.254.4.119:/webdata/retail-portal/db/production

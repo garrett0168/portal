@@ -1,4 +1,4 @@
-# Shared dev env version of our application composition file for commercehomemortgage.com retail website app.
+# Shared dev env version of our application composition file for chmmarketingportal.com retail website app.
 #
 # Builds the full application from 2 images - web (rails app), db (currently mysql).
 # nginx is not used in dev.
@@ -65,4 +65,3 @@ volumes:
     driver: nfs
     driver_opts:
       share: 10.254.4.119:/webdata/retail-portal/web/system
-      
