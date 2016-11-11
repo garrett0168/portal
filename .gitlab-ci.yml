@@ -58,7 +58,7 @@ deploy_dev_image:
     - docker tag cm-dev-04.bwcmtg.com:5000/retail-portal:$CI_BUILD_REF cm-dev-04.bwcmtg.com:5000/retail-portal:dev-latest
     - docker push cm-dev-04.bwcmtg.com:5000/retail-portal:$CI_BUILD_REF
     - docker push cm-dev-04.bwcmtg.com:5000/retail-portal:dev-latest
-    - scp $CI_PROJECT_DIR/docker-compose.yml devops@dev-www.commercehomemortgage.com:~/services/retail-portal_docker-compose.yml
+    - scp $CI_PROJECT_DIR/docker-compose.yml devops@dev-www.chmmarketingportal.com:~/services/retail-portal_docker-compose.yml
     - ssh -v devops@dev-www.chmmarketingportal.com "cd /home/devops/services && ./retail-portal-deploy.sh $CI_BUILD_REF"
   only:
     - master
@@ -72,8 +72,8 @@ deploy_prod_image:
     - docker tag cm-dev-04.bwcmtg.com:5000/retail-portal:$CI_BUILD_REF cm-dev-04.bwcmtg.com:5000/retail-portal:prod-latest
     - docker push cm-dev-04.bwcmtg.com:5000/retail-portal:$CI_BUILD_REF
     - docker push cm-dev-04.bwcmtg.com:5000/retail-portal:prod-latest
-    - scp $CI_PROJECT_DIR/docker-compose.yml devops@www.commercehomemortgage.com:~/services/retail-portal_docker-compose.yml
-    - scp $CI_PROJECT_DIR/docker-compose.prod_override.yml devops@www.commercehomemortgage.com:~/services/retail-portal_docker-compose.prod_override.yml
+    - scp $CI_PROJECT_DIR/docker-compose.yml devops@www.chmmarketingportal.com:~/services/retail-portal_docker-compose.yml
+    - scp $CI_PROJECT_DIR/docker-compose.prod_override.yml devops@www.chmmarketingportal.com:~/services/retail-portal_docker-compose.prod_override.yml
     - ssh -v devops@www.chmmarketingportal.com "cd /home/devops/services && ./retail-portal-deploy.sh $CI_BUILD_REF"
   only:
     - production
