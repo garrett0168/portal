@@ -29,6 +29,15 @@ services:
   db:
     environment:
       - DB_NAME=portal_prod
+  proxy:     
+    image: cm-dev-04.bwcmtg.com:5000/retail-portal-proxy:latest
+    links:
+      - web
+    ports:
+      - 80:80
+    volumes_from:
+      - web
+    restart: always
 volumes:
   retail-portal-db:
     driver: nfs
