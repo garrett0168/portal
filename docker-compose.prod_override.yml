@@ -25,7 +25,7 @@ services:
     environment:
       - RACK_ENV=production
       - RAILS_ENV=production
-      - RAILS_SERVE_STATIC_FILES=true
+      - RAILS_SERVE_STATIC_FILES=false
   db:
     environment:
       - DB_NAME=portal_prod
