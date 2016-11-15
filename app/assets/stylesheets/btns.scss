@@ -40,7 +40,7 @@
 
 }
 .download-btn {
-	background-image: url(patterns/icons/download_20px.png);
+	background-image: image-url(patterns/icons/download_20px.png);
 }
 
 .download-btn-lrg {
@@ -52,7 +52,7 @@
 	display: block;
 	position: absolute;
 	bottom: 0;
-	background-image: url(patterns/icons/download_20px.png);
+	background-image: image-url(patterns/icons/download_20px.png);
 	background-repeat: no-repeat;
 	background-size: 15px;
 	background-position: center center;
@@ -65,7 +65,7 @@
 }
 
 .modal-trigger {
-	background-image: url(patterns/icons/fullview_20px.png);
+	background-image: image-url(patterns/icons/fullview_20px.png);
 }
 
 #marketing-request a{
