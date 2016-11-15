@@ -4,6 +4,9 @@ DB_READY=1
 DB_CHECK_COUNT=0
 DB_MAX_CHECKS=15
 
+# Temp workaround until db/web race condition can be solved.
+sleep 10s
+
 if [ $# -eq 0 ]; then
 
      # Wait for db to be fully ready, with timeout
