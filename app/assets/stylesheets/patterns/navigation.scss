@@ -51,7 +51,7 @@ header {
 	// margin-left: 40px;
 	a {
 		@include hide-text;
-		background-image: image-url(patterns/chm-logo.svg);
+		background-image: image-url('patterns/chm-logo.svg');
 		color: #333233;
 		text-decoration: none;
 		display: block;
