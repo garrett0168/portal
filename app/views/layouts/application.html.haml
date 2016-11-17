@@ -32,6 +32,10 @@
             %h3.navigation-header
               Browse
           %li{:class => "#{'active' if current_page?(flyers_path)}"}= link_to "Flyers", flyers_path
+          %li
+            =link_to "Order Business Cards", "https://commercehomemortgage.wufoo.com/forms/xky5j0i0ioeucd/", :target => "_blank" 
+          %li
+            =link_to "Team Store", "https://www.co-store.com/commerceteamstore", :target => "_blank" 
           %li  
             - if current_page?(flyers_path) || current_page?(logos_path) || current_page?(recent_flyers_path) 
               = render 'page_categories'
