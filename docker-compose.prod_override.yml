@@ -38,6 +38,8 @@ services:
     volumes_from:
       - web
     restart: always
+    depends_on:
+      - web
 volumes:
   retail-portal-db:
     driver: nfs
