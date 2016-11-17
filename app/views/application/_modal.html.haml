@@ -1,5 +1,5 @@
 .modal
-  -if current_page?(flyers_path) || current_page?(recent_flyers_path) || current_page?(root_path)
+  -if current_page?(flyers_path) || current_page?(root_path)
     %input.modal-state{id: "modal-#{flyer.id}", type: "checkbox"}/
     .modal-fade-screen
       .modal-inner
