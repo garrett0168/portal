@@ -32,7 +32,7 @@
   %li
   - Category.joins(:flyers).roots.distinct.each do |category|
     %li
-      %div{class: (@category.try(:id) == category.id || @category.try(:parent).try(:id) == category.id) ? 'active-sub' : ''}       
+      %div{class: (@category.try(:id) == category.id || @category.try(:parent).try(:id) == category.id) ? 'active' : ''}       
         = link_to category.name, flyers_path(category: category.name), class: 'main-nav'
         - if @category.present? && (@category.id == category.id || @category.parent.try(:id) == category.id)
           - parent = @category.root? ? @category : @category.parent
