@@ -21,6 +21,8 @@
       –
       = params[:category]
 .inner-wrap 
+  .flyer-steps
+    = image_tag("steps.png", :alt => "Flyer Instructions")
   %ul.flyer-thumb-grid.thumb-grid.transitions-enabled#masonry-container
     - @flyers.each do |flyer|
       %li.thumb.grid_box
