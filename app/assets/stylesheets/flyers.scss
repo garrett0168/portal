@@ -121,3 +121,11 @@ footer {
 	image-rendering: crisp-edges;
 	-ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
 }
+
+.flyer-steps {
+	width: 100%;
+	display: block;
+	img {
+		max-width: 100%;
+	}
+}
