@@ -63,6 +63,7 @@ h1, h2, h3, h4, h5, h6 {
 .thumb-grid {
 	@include clearfix;
 	li {
+		margin-bottom: 25px;
 		@include span-columns(4 of 12);
 		@include omega(3n);
 		.thumb-image-wrapper  {
@@ -125,6 +126,8 @@ footer {
 .flyer-steps {
 	width: 100%;
 	display: block;
+	text-align: center;
+	padding-bottom: 25px;
 	img {
 		max-width: 100%;
 	}
