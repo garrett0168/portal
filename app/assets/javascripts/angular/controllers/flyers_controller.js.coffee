@@ -6,7 +6,7 @@ angular.module('portal.controllers').controller "FlyerFormController", ["$scope"
   $scope.categoryChanged = (reset) ->
     if $scope.flyer.category_id && $scope.flyer.category_id != ''
       # Reset subcategories
-      $scope.flyer.flyers_subcategories = [] if reset
+      $scope.flyer.uploadable_items_subcategories = [] if reset
       $scope.flyer.category_id = "" + $scope.flyer.category_id
       $http.get("/categories/#{$scope.flyer.category_id}").then( (resp) ->
         $scope.availableSubcategories = resp.data.children
@@ -16,14 +16,14 @@ angular.module('portal.controllers').controller "FlyerFormController", ["$scope"
       )
 
   $scope.addNewSubcategory = ->
-    $scope.flyer.flyers_subcategories.push({})
+    $scope.flyer.uploadable_items_subcategories.push({})
 
   $scope.canAddSubcategory = ->
     $scope.flyer.category_id && $scope.availableSubcategories && $scope.availableSubcategories.length > 0
 
   fixupSubcategories = ->
     return unless $scope.availableSubcategories && $scope.availableSubcategories.length > 0
-    for i in $scope.flyer.flyers_subcategories
+    for i in $scope.flyer.uploadable_items_subcategories
       if i.category_id
         for c in $scope.availableSubcategories
           i.selectedCategory = c if c.id == i.category_id
