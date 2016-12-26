@@ -1,0 +1,15 @@
+= simple_form_for(item, html: {class: 'form-horizontal', "ng-controller" => "FlyerFormController", "ng-init" => "init(#{item.to_json(include: [:category, :uploadable_items_subcategories])})" }) do |f|
+  = f.input :category_id, as: :select, collection: Category.main_categories, label_method: :name, value_method: :id, prompt: "Choose a category", label: false, input_html: { "ng-model" => "flyer.category_id", "ng-change" => "categoryChanged(true)" }
+  %div{ng: { show: "canAddSubcategory()" } }
+    %ul
+      %li{ng: { repeat: "subcategories in flyer.uploadable_items_subcategories" }}
+        %input{type: "hidden", name: "#{item.class.to_s.underscore}[uploadable_items_subcategories_attributes][{{ $index }}][id]", ng: { if: "subcategories.id", value: "subcategories.id" } }
+        %input{type: "hidden", name: "#{item.class.to_s.underscore}[uploadable_items_subcategories_attributes][{{ $index }}][category_id]", ng: { if: "subcategories.selectedCategory", value: "subcategories.selectedCategory.id" } }
+        %select{ ng: { model: "subcategories.selectedCategory", options: "cat as cat.name for cat in availableSubcategories"} }
+          %option{value: ""} Select a subcategory
+  %a{href: "javascript:void(0)", ng: { click: "addNewSubcategory()", show: "canAddSubcategory()" } } Add Subcategory
+  = f.input :document
+  = f.input :title, label: "Title"
+  = f.input :description, label: "Description"
+  %br/
+  = f.button :submit

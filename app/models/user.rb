@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :flyers, inverse_of: :user, dependent: :nullify
+  has_many :uploadable_items, inverse_of: :user, dependent: :nullify
 
   def admin?
     self.admin
