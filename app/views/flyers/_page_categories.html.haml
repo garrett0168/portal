@@ -30,7 +30,7 @@
 
 %ul.secondary-navigation
   %li
-  - Category.joins(:uploadable_items).roots.distinct.each do |category|
+  - Category.joins(:uploadable_items).where("uploadable_items.type = ?", 'Flyer').order('name asc').roots.distinct.each do |category|
     %li
       %div{class: (@category.try(:id) == category.id || @category.try(:parent).try(:id) == category.id) ? 'active' : ''}       
         = link_to category.name, flyers_path(category: category.name), class: 'main-nav'

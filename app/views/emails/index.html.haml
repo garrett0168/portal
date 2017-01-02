@@ -16,8 +16,8 @@
 .pagination.push
   / %h2.headline
   %h3.sub-headline 
-    Emails 
-    - if current_page?(emails_path) 
+    Email Campaigns
+    - if current_page?(emails_path) && params[:category].present?
       –
       = params[:category]
 .inner-wrap 

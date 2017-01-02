@@ -1,0 +1,12 @@
+%ul.secondary-navigation
+  %li
+  - Category.joins(:uploadable_items).where("uploadable_items.type = ?", uploadable_item_type).order('name asc').roots.distinct.each do |category|
+    %li
+      %div{class: (@category.try(:id) == category.id || @category.try(:parent).try(:id) == category.id) ? 'active' : ''}       
+        = link_to category.name, send(uploadable_item_path, category: category.name), class: 'main-nav'
+        - if @category.present? && (@category.id == category.id || @category.parent.try(:id) == category.id)
+          - parent = @category.root? ? @category : @category.parent
+          %ul.secondary
+            -category.children.each do |subcategory|
+              %li{class: @category.try(:id) == subcategory.id ? 'active' : ''}
+                = link_to subcategory.name, send(uploadable_item_path, category: subcategory.name)
