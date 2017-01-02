@@ -1,0 +1,35 @@
+.modal
+  %input.modal-state{id: "modal-marketing-request", type: "checkbox"}/
+  .modal-fade-screen{"ng-controller" => "EmailRequestsFormController", "ng-init" => "init()"}
+    .modal-inner.scrollable
+      .modal-close{for: "modal-marketing-request"} 
+      %h1
+        .tex-center Request Email
+      %p
+        = "Request for <insert Email Title here>"
+        %br
+        Please fill out the form below to send request to Marketing
+      %p.success{"ng-show" => "successMessage"}
+        %strong {{ successMessage }}
+
+      = simple_form_for(EmailRequest.new, html: {class: 'form-horizontal' }) do |f|
+        = f.input :name, label: false, placeholder: 'Name*', input_html: { "ng-model" => "form.name" }, wrapper_html: { "ng-class" => "{'has-error': errors['name']}"}
+        = f.input :lo_name, label: false, placeholder: 'LO Name*', input_html: { "ng-model" => "form.lo_name" }, wrapper_html: { "ng-class" => "{'has-error': errors['lo_name']}"}
+        = f.input :email, label: false, placeholder: 'Email*', input_html: { "ng-model" => "form.email" }, wrapper_html: { "ng-class" => "{'has-error': errors['email']}"}
+        = f.input :event_date, label: false, placeholder: 'Event Date*', input_html: { "ng-model" => "form.event_date" }, wrapper_html: { "ng-class" => "{'has-error': errors['event_date']}"}
+        = f.input :who_to_send_to, label: false, placeholder: 'Who are we sending to?*', input_html: { "ng-model" => "form.who_to_send_to" }, wrapper_html: { "ng-class" => "{'has-error': errors['who_to_send_to']}"}
+        = f.input :frequency_and_time_of_day, label: false, placeholder: 'Frequency & Time of day', input_html: { "ng-model" => "form.frequency_and_time_of_day" }, wrapper_html: { "ng-class" => "{'has-error': errors['frequency_and_time_of_day']}"}
+        .input.existing_query
+          %label{style: "display: inline"}
+            Existing Query
+            %input{type: "radio", "ng-model" => "form.existing_query", name: "existing_query", value: "1"}
+          %label{style: "display: inline"}
+            New List
+            %input{type: "radio", "ng-model" => "form.existing_query", name: "existing_query", value: "0"}
+        = f.input :exclusions, label: false, placeholder: 'Any Exclusions?', input_html: { "ng-model" => "form.exclusions" }, wrapper_html: { "ng-class" => "{'has-error': errors['exclusions']}"}
+        = f.input :subject_line, label: false, placeholder: 'Subject Line*', input_html: { "ng-model" => "form.subject_line" }, wrapper_html: { "ng-class" => "{'has-error': errors['subject_line']}"}
+        = f.input :preheader_text, label: false, placeholder: 'Pre-Header Text', input_html: { "ng-model" => "form.preheader_text" }, wrapper_html: { "ng-class" => "{'has-error': errors['preheader_text']}"}
+        = f.input :desired_goal, label: false, placeholder: 'Desired Goal/Objective*', input_html: { "ng-model" => "form.desired_goal" }, wrapper_html: { "ng-class" => "{'has-error': errors['desired_goal']}"}
+        = f.input :detailed_description, label: false, placeholder: 'Detailed Description*', input_html: { "ng-model" => "form.detailed_description" }, wrapper_html: { "ng-class" => "{'has-error': errors['detailed_description']}"}
+
+        %input{type: "button", value: "Submit Request", "ng-click" => "submitRequest()"}

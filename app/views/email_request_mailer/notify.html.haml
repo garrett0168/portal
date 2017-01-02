@@ -1,0 +1,40 @@
+%p A marketing request has been submitted from the retail portal website. The details are:
+%ul
+  %li
+    %strong Name
+    = @email_request.name
+  %li
+    %strong LO Name
+    = @email_request.lo_name
+  %li
+    %strong Email
+    = @email_request.email
+  %li
+    %strong Event Date
+    = @email_request.event_date
+  %li
+    %strong Who are we sending to?
+    = @email_request.who_to_send_to
+  %li
+    %strong Frequency & Time of day
+    = @email_request.frequency_and_time_of_day
+  %li
+    - if @email_request.existing_query
+      %strong Existing Query
+    - else
+      %strong New List
+  %li
+    %strong Exclusions?
+    = @email_request.exclusions
+  %li
+    %strong Subject Line
+    = @email_request.subject_line
+  %li
+    %strong Pre-Header Text
+    = @email_request.preheader_text
+  %li
+    %strong Desired Goal/Objective
+    = @email_request.desired_goal
+  %li
+    %strong Detailed Description
+    = @email_request.detailed_description

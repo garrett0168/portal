@@ -91,13 +91,16 @@
     margin: auto;
     margin-top: 0;
     height: 95%;
-    overflow: auto;
     padding: 0;
     position: relative;
     transition: opacity 0.25s ease;
     width: 612px;
     overflow: hidden;
     position: relative;
+
+    &.scrollable {
+      overflow: auto;
+    }
   
     .image-wrapper {
       width: 100%;

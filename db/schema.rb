@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161226142906) do
+ActiveRecord::Schema.define(version: 20170102152228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,23 @@ ActiveRecord::Schema.define(version: 20161226142906) do
   end
 
   add_index "categories", ["ancestry"], name: "index_categories_on_ancestry", using: :btree
+
+  create_table "email_requests", force: :cascade do |t|
+    t.string   "name"
+    t.string   "lo_name"
+    t.string   "email"
+    t.string   "event_date"
+    t.string   "who_to_send_to"
+    t.string   "frequency_and_time_of_day"
+    t.boolean  "existing_query"
+    t.text     "exclusions"
+    t.string   "subject_line"
+    t.string   "preheader_text"
+    t.text     "desired_goal"
+    t.text     "detailed_description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "logos", force: :cascade do |t|
     t.string   "title"

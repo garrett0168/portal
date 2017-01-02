@@ -48,3 +48,5 @@ end
 gem 'rails_admin'
 gem 'rails_admin_nestable'
 gem "cancancan"
+
+gem 'htmlentities'
