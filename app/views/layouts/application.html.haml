@@ -19,7 +19,10 @@
           - else
             = link_to "Sign in", new_user_session_path, class: ""
           - if current_user && current_user.admin?
-            = link_to "Add New Flyer", new_flyer_path, class: "button"
+            - if current_page?(emails_path)
+              = link_to "Add New Email Campaign", new_email_path, class: "button"
+            - else
+              = link_to "Add New Flyer", new_flyer_path, class: "button"
     %p.notice= notice
     %p.alert= alert
       
