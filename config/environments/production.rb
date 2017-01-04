@@ -85,4 +85,12 @@ Rails.application.configure do
     :override_file_permissions => 0755,
     :command_path => "/usr/bin/identify"
   }
+
+  # Prod smtp settings, do not need authentication from within the network (copied from retail settings)
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => '216.31.224.87',
+    :port => 25,
+    :openssl_verify_mode => 'none'
+  }
 end

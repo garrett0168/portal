@@ -19,7 +19,10 @@
           - else
             = link_to "Sign in", new_user_session_path, class: ""
           - if current_user && current_user.admin?
-            = link_to "Add New Flyer", new_flyer_path, class: "button"
+            - if current_page?(emails_path)
+              = link_to "Add New Email Campaign", new_email_path, class: "button"
+            - else
+              = link_to "Add New Flyer", new_flyer_path, class: "button"
     %p.notice= notice
     %p.alert= alert
       
@@ -31,6 +34,10 @@
           %li
             %h3.navigation-header
               Browse
+          %li{:class => "#{'active' if current_page?(emails_path)}"}
+            = link_to "Email Campaigns", emails_path
+            - if current_page?(emails_path)
+              = render 'shared/navigation/categories', uploadable_item_type: 'Email', uploadable_item_path: 'emails_path'
           %li{:class => "#{'active' if current_page?(flyers_path)}"}
             = link_to "Flyers", flyers_path
             - if current_page?(flyers_path) || current_page?(logos_path)

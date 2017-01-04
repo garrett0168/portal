@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009190630) do
+ActiveRecord::Schema.define(version: 20170103193315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,28 +25,23 @@ ActiveRecord::Schema.define(version: 20161009190630) do
 
   add_index "categories", ["ancestry"], name: "index_categories_on_ancestry", using: :btree
 
-  create_table "flyers", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.integer  "user_id"
-    t.string   "document_file_name"
-    t.string   "document_content_type"
-    t.integer  "document_file_size"
-    t.datetime "document_updated_at"
-    t.integer  "category_id"
-  end
-
-  create_table "flyers_subcategories", force: :cascade do |t|
-    t.integer  "flyer_id",    null: false
-    t.integer  "category_id", null: false
+  create_table "email_requests", force: :cascade do |t|
+    t.string   "name"
+    t.string   "lo_name"
+    t.string   "email"
+    t.string   "event_date"
+    t.string   "who_to_send_to"
+    t.string   "frequency_and_time_of_day"
+    t.boolean  "existing_query"
+    t.text     "exclusions"
+    t.string   "subject_line"
+    t.string   "preheader_text"
+    t.text     "desired_goal"
+    t.text     "detailed_description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "category"
   end
-
-  add_index "flyers_subcategories", ["category_id"], name: "index_flyers_subcategories_on_category_id", using: :btree
-  add_index "flyers_subcategories", ["flyer_id"], name: "index_flyers_subcategories_on_flyer_id", using: :btree
 
   create_table "logos", force: :cascade do |t|
     t.string   "title"
@@ -59,6 +54,30 @@ ActiveRecord::Schema.define(version: 20161009190630) do
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
   end
+
+  create_table "uploadable_items", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "user_id"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+    t.integer  "category_id"
+    t.string   "type"
+  end
+
+  create_table "uploadable_items_subcategories", force: :cascade do |t|
+    t.integer  "uploadable_item_id", null: false
+    t.integer  "category_id",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "uploadable_items_subcategories", ["category_id"], name: "index_uploadable_items_subcategories_on_category_id", using: :btree
+  add_index "uploadable_items_subcategories", ["uploadable_item_id"], name: "index_uploadable_items_subcategories_on_uploadable_item_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -75,9 +94,11 @@ ActiveRecord::Schema.define(version: 20161009190630) do
     t.datetime "updated_at",                             null: false
     t.string   "name"
     t.boolean  "admin",                  default: false
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

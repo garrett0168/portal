@@ -1,8 +1,8 @@
 class Category < ActiveRecord::Base
-  has_many :flyers, inverse_of: :category, dependent: :nullify
+  has_many :uploadable_items, inverse_of: :category, dependent: :nullify
   has_many :logos
 
-  has_many :flyers_subcategories, inverse_of: :flyer
+  has_many :uploadable_items_subcategories, inverse_of: :category
 
   has_ancestry
 

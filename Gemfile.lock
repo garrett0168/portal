@@ -98,6 +98,7 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
+    htmlentities (4.3.4)
     i18n (0.7.0)
     imagesLoaded_rails (4.1.0)
       railties (>= 3.1)
@@ -259,6 +260,7 @@ DEPENDENCIES
   devise (~> 4.2)
   foreman
   haml-rails (~> 0.9.0)
+  htmlentities
   imagesLoaded_rails
   jbuilder (~> 2.0)
   jquery-rails
@@ -281,4 +283,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.13.3
+   1.13.6

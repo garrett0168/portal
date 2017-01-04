@@ -1,0 +1,2 @@
+class Email < UploadableItem
+end

@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   resources :logos
   resources :categories
   resources :flyers
+  resources :emails
+
+  resources :email_requests
 
   root 'flyers#index'
 end
