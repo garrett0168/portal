@@ -1,12 +1,12 @@
 .modal
-  %input.modal-state{id: "modal-marketing-request", type: "checkbox"}/
-  .modal-fade-screen{"ng-controller" => "EmailRequestsFormController", "ng-init" => "init()"}
+  %input.modal-state{id: "modal-email-request-#{email.id}", type: "checkbox"}/
+  .modal-fade-screen{"ng-controller" => "EmailRequestsFormController", "ng-init" => "init('#{email.category.name}')"}
     .modal-inner.scrollable
       .modal-close{for: "modal-marketing-request"} 
       %h1
         .tex-center Request Email
       %p
-        = "Request for <insert Email Title here>"
+        = "Request for #{email.category.name}"
         %br
         Please fill out the form below to send request to Marketing
       %p.success{"ng-show" => "successMessage"}
@@ -32,4 +32,4 @@
         = f.input :desired_goal, label: false, placeholder: 'Desired Goal/Objective*', input_html: { "ng-model" => "form.desired_goal" }, wrapper_html: { "ng-class" => "{'has-error': errors['desired_goal']}"}
         = f.input :detailed_description, label: false, placeholder: 'Detailed Description*', input_html: { "ng-model" => "form.detailed_description" }, wrapper_html: { "ng-class" => "{'has-error': errors['detailed_description']}"}
 
-        %input{type: "button", value: "Submit Request", "ng-click" => "submitRequest()"}
+        %input{type: "button", value: "Submit Request", "ng-click" => "submitRequest()", "ng-disabled" => "submitting"}

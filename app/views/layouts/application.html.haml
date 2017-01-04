@@ -45,11 +45,7 @@
             =link_to "Team Store", "https://www.co-store.com/commerceteamstore", :target => "_blank" 
         %ul.navigation
           %li#marketing-request
-            = render "shared/navigation/marketing_request_modal"
-            = link_to "#" do
-              .modal
-                %label{:for => "modal-marketing-request"}
-                  .modal-marketing-request-trigger Marketing Requests
+            =mail_to "marketing@commercemtg.com", "Marketing Requests"
         =link_to("Back Up", "javascript:void(0)", :class => "scrollToTop")
       %article.column.content
         = yield

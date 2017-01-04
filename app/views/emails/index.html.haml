@@ -32,13 +32,17 @@
             .modal
               %label{:for => "modal-#{email.id}"}
                 .modal-trigger Click for Modal
-            = link_to('Download', email.document.url(:original, false), :class => "download-btn", :target => "_blank")
+            .modal
+              %label{:for => "modal-email-request-#{email.id}"}
+                .download-btn.email-request-trigger Click for Request Modal
+            /= link_to('Download', email.document.url(:original, false), :class => "download-btn", :target => "_blank")
         %h2.title= email.title
         %p.description
           = email.description
           / %span
           /   = email.category.name
         = render partial: 'modal', locals: { flyer: email }
+        = render partial: 'shared/navigation/email_request_modal', locals: { email: email }
         - if current_user && current_user.admin?
           =link_to "Edit", edit_email_path(email), :class=>"admin-btns edit"
           =link_to "Destroy", email_path(email), method: :delete, data: { confirm: "Are you sure?"}, :class=>"admin-btns delete"
