@@ -16,6 +16,7 @@
 }
 
 .download-btn,
+.email-request-trigger,
 .modal-trigger{	
 	height: 40px;
 	width: 50%;
@@ -42,7 +43,9 @@
 .download-btn {
 	background-image: image-url('patterns/icons/download_20px.png');
 }
-
+.email-request-trigger{
+	background-image: image-url('patterns/icons/request.png');
+}
 .download-btn-lrg {
 	background-color: $dark-blue;
 	line-height: 35px;

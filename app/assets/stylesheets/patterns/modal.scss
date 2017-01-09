@@ -173,3 +173,37 @@
 }
 
 // Based on code by Kasper Mikiewicz
+
+#email-request-modal {
+  padding: 30px; 
+
+  #new_email_request {
+    @include outer-container;
+    @include clearfix;
+    * {
+      float: left;
+      display: block;
+    }
+    .input {
+      width: 100%;
+    }
+
+    .existing_query,
+    .email_request_exclusions,
+    .email_request_desired_goal,
+    .email_request_detailed_description {
+      margin-bottom: 15px;
+      label {
+        padding: 15px;
+      }
+    }
+
+    .email_request_event_date,
+    .email_request_frequency_and_time_of_day {
+      width: 49%;
+    }
+    .email_request_event_date {
+      margin-right: 2%;
+    }
+  }
+}
