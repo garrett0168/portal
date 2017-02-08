@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :flyers
   resources :emails
+  resources :presentations
 
   resources :email_requests
 
