@@ -18,11 +18,11 @@ version: '2'
 services:
   web:
     # From our in-house docker repository
-    image: local/retail-portal:latest
+    image: cm-dev-04.bwcmtg.com:5000/retail-portal:$CI_BUILD_REF
     depends_on:
       - db
     environment:
-      - COMMIT_ID=latest
+      - COMMIT_ID=$CI_BUILD_REF
       - RACK_ENV=development
       - RAILS_ENV=development
       - RAILS_SERVE_STATIC_FILES=true
@@ -57,13 +57,12 @@ services:
       - retail-portal-db:/var/lib/postgresql
     restart: always
 volumes:
-  
   retail-portal-web:
   retail-portal-db:
     driver: nfs
     driver_opts:
-      share: /webdata/retail-portal/db/development
+      share: 10.254.4.119:/webdata/retail-portal/db/development
   retail-portal-web-system:
     driver: nfs
     driver_opts:
-      share: /webdata/retail-portal/web/system
+      share: 10.254.4.119:/webdata/retail-portal/web/system
