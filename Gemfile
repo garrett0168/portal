@@ -50,3 +50,15 @@ gem 'rails_admin_nestable'
 gem "cancancan"
 
 gem 'htmlentities'
+
+gem 'tzinfo-data', platforms: [:x64_mingw,:mingw, :mswin]
+gem 'yaml_db'
+
+gem 'bcrypt', platforms: :ruby
+
+
+gem "devise_ldap_authenticatable"
+
+gem 'mysql', '~> 2.9', '>= 2.9.1'
+
+gem 'roo', '~> 2.7', '>= 2.7.1'

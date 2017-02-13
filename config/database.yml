@@ -1,4 +1,52 @@
-development:
+# development:
+  # adapter: mysql
+  # encoding: utf8
+  # database: portal_dev
+  # pool: 5
+  # username: root
+  # password: 1234
+  # host: db
+  # test:
+  # adapter: mysql
+  # encoding: utf8
+  # database: portal_test
+  # pool: 5
+  # username: <%= ENV['DB_USER'] %>
+  # password: <%= ENV['DB_PASS'] %>
+  # host: db
+# production:
+  # adapter: mysql
+  # encoding: utf8
+  # database: portal_prod
+  # pool: 5
+  # username: dbuser
+  # password: nuggets6
+  # host: db
+# development:
+ # adapter: postgresql
+ # encoding: unicode
+ # database: portal_dev
+ # pool: 5
+ # username: postgres
+ # password: 1234
+ # host: db
+# test:
+ # adapter: postgresql
+ # encoding: unicode
+ # database: portal_test
+ # pool: 5
+ # username: <%= ENV['DB_USER'] %>
+ # password: <%= ENV['DB_PASS'] %>
+ # host: db
+# production:
+ # adapter: postgresql
+ # encoding: unicode
+ # database: portal_prod
+ # pool: 5
+ # username: dbuser
+ # password: nuggets6
+ # host: db
+ development:
   adapter: postgresql
   encoding: unicode
   database: portal_dev
@@ -22,3 +70,5 @@ production:
   username: dbuser
   password: nuggets6
   host: db
+
+

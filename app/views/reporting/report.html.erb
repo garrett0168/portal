@@ -1,0 +1,14 @@
+<div class="report">
+  <h1>Reporting information</h1>
+<%= form_for :file, url:  "insert_report" do |f| %>
+    <p>
+      <%= f.file_field  :file %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
+
+
+</div>

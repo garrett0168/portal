@@ -26,6 +26,9 @@ version: '2'
 services:
   web:
     # From your local docker repository
-    image: local/retail-portal:$CI_BUILD_REF
-    volumes:
-      - ~/projects/retail-portal:/srv/www/htdocs
+    image: local/retail-portal:latest
+#    volumes:
+#      - ~/projects/retail-portal:/srv/www/htdocs
+volumes:
+  retail-portal-db:
+  retail-portal-web-system:

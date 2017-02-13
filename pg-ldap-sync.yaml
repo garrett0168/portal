@@ -1,0 +1,124 @@
+# With this sample config the distinction between PG groups and users is
+# done by the LOGIN/NOLOGIN attribute. Any non-superuser account
+# is considered as LDAP-synchronized.
+
+# Connection parameters to LDAP server
+# see also: http://net-ldap.rubyforge.org/Net/LDAP.html#method-c-new
+ldap_connection:
+  host: 10.254.4.6
+  port: 389
+  auth:
+    method: :simple
+    username: Amuntean
+    password: CM2016!Am
+
+# Search parameters for LDAP users which should be synchronized
+ldap_users:
+  base: DC=BWCMTG,DC=com
+  # LDAP filter (according to RFC 2254)
+  # defines to users in LDAP to be synchronized
+  filter: (&(objectClass=person)(objectClass=organizationalPerson)(givenName=*)(sn=*))
+  # this attribute is used as PG role name
+  name_attribute: sAMAccountName
+
+# Search parameters for LDAP groups which should be synchronized
+ldap_groups:
+  base: DC=BWCMTG,DC=com
+  filter: (|(cn=group1)(cn=group2)(cn=group3))
+  # this attribute is used as PG role name
+  name_attribute: cn
+  # this attribute must reference to all member DN's of the given group
+  member_attribute: member
+
+# Connection parameters to PostgreSQL server
+# see also: http://rubydoc.info/gems/pg/PG/Connection#initialize-instance_method
+pg_connection:
+  host:
+  dbname: postgres
+  user: db-username
+  password:
+
+pg_users:
+  # Filter for identifying LDAP generated users in the database.
+  # It's the WHERE-condition to "SELECT rolname, oid FROM pg_roles"
+  filter: rolcanlogin AND NOT rolsuper
+  # Options for CREATE RULE statements
+  create_options: LOGIN
+
+pg_groups:
+  # Filter for identifying LDAP generated groups in the database.
+  # It's the WHERE-condition to "SELECT rolname, oid FROM pg_roles"
+  filter: NOT rolcanlogin AND NOT rolsuper
+  # Options for CREATE RULE statements
+  create_options: NOLOGIN
+  grant_options:
+
+
+
+
+
+
+
+
+
+  # With this sample config the distinction between LDAP-synchronized
+  # groups/users from is done by the membership to ldap_user and
+  # ldap_group. These two roles has to be defined manally before
+  # pg_ldap_sync can run.
+
+  # Connection parameters to LDAP server
+  # see also: http://net-ldap.rubyforge.org/Net/LDAP.html#method-c-new
+  ldap_connection:
+    host: ldapserver
+    port: 636
+    auth:
+      method: :simple
+      username: CN=username,OU=!Serviceaccounts,OU=company,DC=company,DC=de
+      password: secret
+    encryption:
+      method: :simple_tls
+
+  # Search parameters for LDAP users which should be synchronized
+  ldap_users:
+    base: OU=company,DC=company,DC=prod
+    # LDAP filter (according to RFC 2254)
+    # defines to users in LDAP to be synchronized
+    filter: (&(objectClass=person)(objectClass=organizationalPerson)(givenName=*)(sn=*)(sAMAccountName=*))
+    # this attribute is used as PG role name
+    name_attribute: sAMAccountName
+    # lowercase name for use as PG role name
+    lowercase_name: true
+
+  # Search parameters for LDAP groups which should be synchronized
+  ldap_groups:
+    base: OU=company,DC=company,DC=prod
+    filter: (cn=company.*)
+    # this attribute is used as PG role name
+    name_attribute: cn
+    # lowercase name for use as PG role name
+    lowercase_name: false
+    # this attribute must reference to all member DN's of the given group
+    member_attribute: member
+
+  # Connection parameters to PostgreSQL server
+  # see also: http://rubydoc.info/gems/pg/PG/Connection#initialize-instance_method
+  pg_connection:
+    host:
+    dbname: postgres
+    user:
+    password:
+
+  pg_users:
+    # Filter for identifying LDAP generated users in the database.
+    # It's the WHERE-condition to "SELECT rolname, oid FROM pg_roles"
+    filter: oid IN (SELECT pam.member FROM pg_auth_members pam JOIN pg_roles pr ON pr.oid=pam.roleid WHERE pr.rolname='ldap_users')
+    # Options for CREATE RULE statements
+    create_options: LOGIN IN ROLE ldap_users
+
+  pg_groups:
+    # Filter for identifying LDAP generated groups in the database.
+    # It's the WHERE-condition to "SELECT rolname, oid FROM pg_roles"
+    filter: oid IN (SELECT pam.member FROM pg_auth_members pam JOIN pg_roles pr ON pr.oid=pam.roleid WHERE pr.rolname='ldap_groups')
+    # Options for CREATE RULE statements
+    create_options: NOLOGIN IN ROLE ldap_groups
+    grant_options:
