@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  rescue_from DeviseLdapAuthenticatable::LdapException do |exception|
+    render :text => exception, :status => 500
+  end
 
   protect_from_forgery with: :exception
 
@@ -10,6 +13,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
   	devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   	devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+  	devise_parameter_sanitizer.permit(:username)
   end
 
   def set_csrf_cookie_for_ng
