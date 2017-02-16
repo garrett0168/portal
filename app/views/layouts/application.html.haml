@@ -22,6 +22,8 @@
           - if current_user && current_user.admin?
             - if current_page?(emails_path)
               = link_to "Add New Email Campaign", new_email_path, class: "button"
+            - if current_page?(presentations_path)
+              = link_to "Add New Presentation", new_presentation_path, class: "button"
             - else
               = link_to "Add New Flyer", new_flyer_path, class: "button"
     %p.notice= notice
@@ -43,6 +45,10 @@
           /   = link_to "Email Campaigns", emails_path
           /   - if current_page?(emails_path)
           /     = render 'shared/navigation/categories', uploadable_item_type: 'Email', uploadable_item_path: 'emails_path'
+          %li{:class => "#{'active' if current_page?(presentations_path)}"}
+            = link_to "Presentations", presentations_path
+            - if current_page?(presentations_path)
+              = render 'shared/navigation/categories', uploadable_item_type: 'Presentation', uploadable_item_path: 'presentations_path'
           %li
             =link_to "Order Business Cards", "https://commercehomemortgage.wufoo.com/forms/xky5j0i0ioeucd/", :target => "_blank" 
         %ul.navigation

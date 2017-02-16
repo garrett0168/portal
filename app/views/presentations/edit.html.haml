@@ -1,0 +1,18 @@
+#hero-wrap.smaller
+  #hero
+    - if user_signed_in?
+      %p#intro
+        Welcome
+        = current_user.name
+        %br/
+        %span.sub-title
+          CHM Marketing Portal.
+    - else
+      %p#intro
+        Welcome to the new
+        %br/
+        %span.sub-title
+          CHM Marketing Portal.
+.inner-wrap.push-sm 
+  .new-flyer
+    = render 'shared/uploadable_items/form', item: @presentation
